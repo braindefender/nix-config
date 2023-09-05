@@ -3,10 +3,10 @@
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.nix;
+let cfg = config.plusultra.system.nix;
 
 in {
-  options.plusultra.nix = with types; {
+  options.plusultra.system.nix = with types; {
     enable = mkBoolOpt true "Whether or not to manage nix configuration.";
     package = mkOpt package pkgs.nixUnstable "Which nix package to use.";
   };

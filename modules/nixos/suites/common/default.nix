@@ -7,12 +7,17 @@ let cfg = config.plusultra.suites.common;
 
 in {
   options.plusultra.suites.common = with types; {
-    enable = mkBoolOpt false "Whether or not to enable common configuration.";
+    enable = mkBoolOpt false "Enable common configuration?";
   };
 
   config = mkIf cfg.enable {
     plusultra = {
-      nix = enabled;
+      system = {
+        nix = enabled;
+	time = enabled;
+	locale = enabled;
+	fonts = enabled;
+      };
       
       hardware = {
         keyboard = enabled;

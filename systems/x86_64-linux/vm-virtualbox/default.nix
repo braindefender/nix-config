@@ -14,56 +14,21 @@ with lib.plusultra;
     suites = {
       common = enabled;
     };
+    system = {
+      boot.grub = enabled;
+    };
   };
 
   # Bootloader.
   boot = {
-    loader = {
-      timeout = 2;
-
-      grub = {
-        enable = true;
-        device = "/dev/sda";
-        useOSProber = true;
-      };
-
-      systemd-boot = {
-	enable = false;
-	configurationLimit = 15;
-      };
-    };
-
     initrd.supportedFilesystems = ["btrfs"];
     initrd.systemd.enable = true;
   };
 
-  networking.hostName = "halcyon"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking.hostName = "vm-virtualbox"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "Asia/Novosibirsk";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -76,17 +41,12 @@ with lib.plusultra;
     pulse.enable = true;
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
     # dev
     bun
-    # others
-    firefox
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
