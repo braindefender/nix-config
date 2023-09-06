@@ -15,13 +15,13 @@ in {
 
     security.doas = {
       enable = true;
-      extraRules = [
+      extraRules = [{
         users = [ config.plusultra.user.name ];
 	noPass = true;
 	keepEnv = true;
-      ];
+      }];
     };
 
-    environment.shellAliases = { sudo = "doas" };
+    environment.shellAliases = { sudo = "doas"; };
   };
 }

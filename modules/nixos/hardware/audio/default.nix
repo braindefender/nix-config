@@ -1,4 +1,4 @@
-{options, config, lib, pkgs, ...}:
+{ options, config, lib, pkgs, ... }:
 
 with lib;
 with lib.plusultra;
@@ -8,9 +8,9 @@ let cfg = config.plusultra.hardware.audio;
 in {
   options.plusultra.hardware.audio = with types; {
     enable = mkBoolOpt false "Enable audio configuration?";
-    extraPackages = mkOpt (listOf package) with pkgs; [
-      qjackctl
-      easyeffects
+    extraPackages = mkOpt (listOf package) [
+      pkgs.qjackctl
+      pkgs.easyeffects
     ] "Additional packages to install.";
   };
 
@@ -28,10 +28,10 @@ in {
 
     hardware.pulseaudio.enable = mkForce false;
 
-    environment.systemPackages = with pkgs; [ 
+    environment.systemPackages = with pkgs; [
       pulsemixer
       pavucontrol
-    ] ++ cfg.extra-packages;
+    ] ++ cfg.extraPackages;
 
     plusultra.user.extraGroups = [ "audio" ];
   };

@@ -40,18 +40,20 @@ in {
       };
 
       apps-gui = {
-        blender = enabled;
-	discord = enabled;
+        # blender = enabled;
+	# discord = enabled;
 	firefox = enabled;
 	gparted = enabled;
-	obsidian = enabled;
-	obs-studio = enabled;
+	kitty = enabled;
+	# obsidian = enabled;
+	# obs-studio = enabled;
 	telegram = enabled;
       };
 
       apps-cli = {
         helix = enabled;
         neovim = enabled;
+	starship = enabled;
       };
     };
   };

@@ -14,6 +14,9 @@ in {
     environment.systemPackages = with pkgs; [
       plusultra.neovim
     ];
+    environment.variables = {
+      EDITOR = "nvim";
+    };
     plusultra.home.extraOptions = {
       programs.zsh.shellAliases.vimdiff = "nvim -d"; 
       programs.bash.shellAliases.vimdiff = "nvim -d"; 
