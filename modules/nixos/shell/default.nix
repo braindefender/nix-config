@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    vim     # Best editor ever
     fzf     # CLI fuzzy-finder
     killall
     unzip

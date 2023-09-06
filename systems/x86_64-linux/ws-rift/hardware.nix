@@ -3,30 +3,39 @@
 # to /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, ... }:
 
+with lib;
+with lib.plusultra;
+
 {
-  imports = [ ];
-
-  boot.initrd.availableKernelModules = [ "ata_piix" "ohci_pci" "ehci_pci" "ahci" "sd_mod" "sr_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
-  boot.extraModulePackages = [ ];
-
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/0235e2d9-52e0-4367-a153-7d76e041199b";
-      fsType = "ext4";
+  boot = {
+    # Before boot
+    initrd = {
+      kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
+      availablKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];
     };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/3147c3c7-1756-4098-929e-98c63c60f17c"; }
-    ];
+    # After boot
+    kernelModules = ["kvm-intel"];
+  };
+  
+  hardware = {
+    # Intel microcode
+    cpu.intel.updateMicrocode = 
+      mkDefault config.hardware.enableRedistributableFirmware;
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp0s3.useDHCP = lib.mkDefault true;
+    # TODO: Check
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = true;
+    };
+  };
 
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  virtualisation.virtualbox.guest.enable = true;
+  # Bluetooth service
+  services.blueman.enable = true;
+
+  # Nvidia drivers for X and Wayland
+  services.xserver.videoDrivers = ["nvidia"];
+
+  # 64-Bit system target
+  nixpkgs.hostPlatform = mkDefault "x86_64-linux";
 }

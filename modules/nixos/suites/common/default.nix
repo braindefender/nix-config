@@ -12,6 +12,12 @@ in {
 
   config = mkIf cfg.enable {
     plusultra = {
+      hardware = {
+        audio = enabled;
+        keyboard = enabled;
+	networking = enabled;
+      };
+
       system = {
         doas = enabled;
 	fonts = enabled;
@@ -20,11 +26,11 @@ in {
         nix = enabled;
 	time = enabled;
       };
-      
-      hardware = {
-        keyboard = enabled;
-      };
 
+      services = {
+        openssh = enabled;
+      };
+      
       tools = {
         git = enabled;
       };
