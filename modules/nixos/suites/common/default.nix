@@ -13,10 +13,12 @@ in {
   config = mkIf cfg.enable {
     plusultra = {
       system = {
+        doas = enabled;
+	fonts = enabled;
+	keyring = enabled;
+	locale = enabled;
         nix = enabled;
 	time = enabled;
-	locale = enabled;
-	fonts = enabled;
       };
       
       hardware = {
