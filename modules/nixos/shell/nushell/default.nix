@@ -37,6 +37,7 @@ in
             cat = "${lib.getExe bat} -p";
             dust = "${lib.getExe du-dust}";
             hx = "helix";
+            sudo = mkIf config.plusultra.system.doas.enable "doas";
 
             # Exa instead of ls
             l = "${lib.getExe exa} -l --group-directories-first --time-style long-iso --no-user --icons";

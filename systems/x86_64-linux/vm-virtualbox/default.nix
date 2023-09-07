@@ -13,6 +13,7 @@ with lib.plusultra;
   plusultra = {
     suites = {
       common = enabled;
+      development = enabled;
     };
     system = {
       boot.grub = enabled;

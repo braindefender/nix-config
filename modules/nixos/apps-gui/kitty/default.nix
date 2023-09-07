@@ -12,5 +12,18 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ kitty kitty-themes ];
+
+    plusultra.system.home.extraOptions = {
+      programs.kitty = {
+        enable = true;
+
+        theme = "Catppuccin-Macchiato";
+        font.name = "CaskaydiaCove Nerd Font Mono";
+        settings = {
+          window_padding_width = "1 5";
+          enable_audio_bell = false;
+        };
+      };
+    };
   };
 }
