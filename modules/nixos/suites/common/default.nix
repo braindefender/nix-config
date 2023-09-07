@@ -33,7 +33,10 @@ in {
 
       shell = {
         common = enabled;
-        nushell = enabled;
+        nushell = {
+          enable = true;
+          default = true;
+        };
       };
 
       tools = {

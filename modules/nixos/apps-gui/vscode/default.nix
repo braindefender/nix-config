@@ -128,6 +128,14 @@ in
           "terminal.integrated.scrollback" = 10000;
           "terminal.integrated.smoothScrolling" = true;
 
+          # Nushell Integration
+          "terminal.integrated.defaultProfile.linux" = "nushell";
+          "terminal.integrated.profiles.linux" = {
+            "nushell" = {
+              path = "${pkgs.nushell}/bin/nu";
+            };
+          };
+
           # VIM
 
           ## VIM Settings

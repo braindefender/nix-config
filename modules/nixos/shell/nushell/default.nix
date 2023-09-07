@@ -15,9 +15,13 @@ in
 {
   options.plusultra.shell.nushell = with types; {
     enable = mkBoolOpt false "Enable Nushell?";
+    default = mkBoolOpt false "Set Nushell as default shell?";
   };
 
   config = mkIf cfg.enable {
+    plusultra.user.extraOptions = mkIf cfg.default {
+      shell = pkgs.nushell;
+    };
     plusultra.system.home.extraOptions = {
       programs = {
         nushell = {
