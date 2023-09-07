@@ -1,4 +1,4 @@
-{options, config, pkgs, lib, ...}:
+{ options, config, pkgs, lib, ... }:
 
 with lib;
 with lib.plusultra;

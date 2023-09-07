@@ -1,12 +1,13 @@
-{options, config, lib, pkgs, ...}:
+{ options, config, lib, pkgs, ... }:
 
 with lib;
 with lib.plusultra;
 
-let 
+let
   cfg = config.plusultra.tools.git;
   user = config.plusultra.user;
-in {
+in
+{
   options.plusultra.tools.git = with types; {
     enable = mkBoolOpt false "Whether or not to install and configure git.";
     userName = mkOpt str user.fullName "The name to configure git with.";
@@ -16,15 +17,15 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ git ];
 
-    plusultra.home.extraOptions = {
+    plusultra.system.home.extraOptions = {
       programs.git = {
         enable = true;
-	inherit (cfg) userName userEmail;
-	extraConfig = {
-	  init = { defaultBranch = "master"; };
-	  pull = { rebase = true; };
-	  push = { autoSetupRemote = true; };
-	};
+        inherit (cfg) userName userEmail;
+        extraConfig = {
+          init = { defaultBranch = "master"; };
+          pull = { rebase = true; };
+          push = { autoSetupRemote = true; };
+        };
       };
     };
   };

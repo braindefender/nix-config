@@ -8,7 +8,7 @@ with lib;
 with lib.plusultra;
 
 {
-  imports = [ 
+  imports = [
     ./hardware.nix
     ./partitions.nix
   ];

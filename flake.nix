@@ -46,16 +46,16 @@
     let
       lib = inputs.snowfall-lib.mkLib {
         inherit inputs;
-	src = ./.;
+        src = ./.;
 
-	snowfall = {
-	  meta = {
+        snowfall = {
+          meta = {
             name = "plusultra";
             title = "Plus Ultra";
-	  };
+          };
 
-	  namespace = "plusultra";
-	};
+          namespace = "plusultra";
+        };
       };
     in
     lib.mkFlake {

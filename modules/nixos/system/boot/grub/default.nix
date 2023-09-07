@@ -1,4 +1,4 @@
-{options, config, lib, pkgs, ...}:
+{ options, config, lib, pkgs, ... }:
 
 with lib;
 with lib.plusultra;
@@ -14,9 +14,9 @@ in {
     boot.loader = {
       grub = {
         enable = true;
-	device = "/dev/sda"; # TODO: fix
-	useOSProber = false;
-	configurationLimit = 10;
+        device = "/dev/sda"; # TODO: fix
+        useOSProber = false;
+        configurationLimit = 10;
       };
 
       timeout = 2;

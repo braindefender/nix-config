@@ -1,4 +1,4 @@
-{options, config, pkgs, lib, ...}:
+{ options, config, pkgs, lib, ... }:
 
 with lib;
 with lib.plusultra;
@@ -17,11 +17,14 @@ in {
     environment.variables = {
       EDITOR = "nvim";
     };
-    plusultra.home.extraOptions = {
-      programs.zsh.shellAliases.vimdiff = "nvim -d"; 
-      programs.bash.shellAliases.vimdiff = "nvim -d"; 
-      programs.fish.shellAliases.vimdiff = "nvim -d"; 
-      programs.nushell.shellAliases.vimdiff = "nvim -d"; 
+    plusultra.system.home.extraOptions = {
+      home.sessionVariables = {
+        EDITOR = "nvim";
+      };
+      programs.zsh.shellAliases.vimdiff = "nvim -d";
+      programs.bash.shellAliases.vimdiff = "nvim -d";
+      programs.fish.shellAliases.vimdiff = "nvim -d";
+      programs.nushell.shellAliases.vimdiff = "nvim -d";
     };
   };
 }

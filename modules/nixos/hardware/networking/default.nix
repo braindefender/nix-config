@@ -1,12 +1,13 @@
-{options, config, lib, pkgs, ...}:
+{ options, config, lib, pkgs, ... }:
 
 with lib;
 with lib.plusultra;
 
-let 
+let
   cfg = config.plusultra.hardware.networking;
   localhost = "127.0.0.1";
-in {
+in
+{
   options.plusultra.hardware.networking = with types; {
     enable = mkBoolOpt false "Enable Network Manager?";
     hosts = mkOpt attrs { }
@@ -19,7 +20,7 @@ in {
     networking = {
       networkmanager = {
         enable = true;
-	dhcp = "internal";
+        dhcp = "internal";
       };
 
       hosts = {

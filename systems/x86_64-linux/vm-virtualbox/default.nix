@@ -21,7 +21,7 @@ with lib.plusultra;
 
   # Bootloader.
   boot = {
-    initrd.supportedFilesystems = ["btrfs"];
+    initrd.supportedFilesystems = [ "btrfs" ];
     initrd.systemd.enable = true;
   };
 

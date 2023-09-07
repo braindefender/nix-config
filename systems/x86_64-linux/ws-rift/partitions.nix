@@ -1,4 +1,4 @@
-{config, ...}:
+{ config, ... }:
 
 let
   label = "NIX";
@@ -9,30 +9,31 @@ let
     "noatime"
     "ssd"
   ];
-in {
+in
+{
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-label/${label}";
       fsType = "btrfs";
-      options = btrfsOptions ++ ["subvol=root"];
+      options = btrfsOptions ++ [ "subvol=root" ];
     };
 
     "/home" = {
       device = "/dev/disk/by-label/${label}";
       fsType = "btrfs";
-      options = btrfsOptions ++ ["subvol=home"];
+      options = btrfsOptions ++ [ "subvol=home" ];
     };
 
     "/nix" = {
       device = "/dev/disk/by-label/${label}";
       fsType = "btrfs";
-      options = btrfsOptions ++ ["subvol=nix"];
+      options = btrfsOptions ++ [ "subvol=nix" ];
     };
 
     "/log" = {
       device = "/dev/disk/by-label/${label}";
       fsType = "btrfs";
-      options = btrfsOptions ++ ["subvol=log"];
+      options = btrfsOptions ++ [ "subvol=log" ];
       neededForBoot = true;
     };
 

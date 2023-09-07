@@ -1,4 +1,4 @@
-{options, config, lib, pkgs, ...}:
+{ options, config, lib, pkgs, ... }:
 
 with lib;
 with lib.plusultra;
@@ -14,7 +14,7 @@ in {
     programs = {
       steam = {
         enable = true;
-	remotePlay.openFirewall = true;
+        remotePlay.openFirewall = true;
       };
     };
   };

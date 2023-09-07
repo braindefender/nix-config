@@ -1,4 +1,4 @@
-{options, config, lib, pkgs, ...}:
+{ options, config, lib, pkgs, ... }:
 
 with lib;
 with lib.plusultra;
@@ -17,8 +17,8 @@ in {
       enable = true;
       extraRules = [{
         users = [ config.plusultra.user.name ];
-	noPass = true;
-	keepEnv = true;
+        noPass = true;
+        keepEnv = true;
       }];
     };
 

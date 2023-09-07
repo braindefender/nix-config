@@ -1,4 +1,4 @@
-{options, config, lib, pkgs, ...}:
+{ options, config, lib, pkgs, ... }:
 
 with lib;
 with lib.plusultra;
@@ -21,12 +21,12 @@ in {
         noto-fonts-emoji
         cantarell-fonts # GNOME 3 default font
         font-awesome
-        (nerdfonts.override { 
+        (nerdfonts.override {
           fonts = [
-	    "CascadiaCode" # Windows Terminal default font
-	    "FiraCode" # Best ligature-featured font
-	    "JetBrainsMono" # Daily-driver for development
-  	  ];
+            "CascadiaCode" # Windows Terminal default font
+            "FiraCode" # Best ligature-featured font
+            "JetBrainsMono" # Daily-driver for development
+          ];
         })
       ] ++ cfg.fonts;
 
@@ -35,12 +35,12 @@ in {
         antialias = true;
         hinting = {
           enable = true;
-	  autohint = true;
+          autohint = true;
           style = "full"; # TODO: check
         };
 
         defaultFonts = {
-          emoji = ["Segoe UI Emoji" "Noto Fonts Emoji"];
+          emoji = [ "Segoe UI Emoji" "Noto Fonts Emoji" ];
         };
 
         subpixel.lcdfilter = "default"; # TODO: check

@@ -1,4 +1,4 @@
-{config, lib, ...}:
+{ config, lib, ... }:
 
 with lib;
 with lib.plusultra;
@@ -14,7 +14,7 @@ in {
       tools.qmk = enabled;
       hardware.universal-layout = {
         enable = true;
-	ortho = true;
+        ortho = true;
       };
     };
   };

@@ -1,4 +1,4 @@
-{options, config, lib, pkgs, ...}:
+{ options, config, lib, pkgs, ... }:
 
 with lib;
 with lib.plusultra;
@@ -6,7 +6,8 @@ with lib.plusultra;
 let
   cfg = config.plusultra.desktop.gnome;
   gdmHome = config.users.users.gdm.home;
-in {
+in
+{
   options.plusultra.desktop.gnome = with types; {
     enable = mkBoolOpt false "Whether or not to use GNOME as the desktop environment.";
     wayland = mkBoolOpt true "Whether or not to use Wayland as the desktop compositor.";
@@ -36,7 +37,7 @@ in {
 
       displayManager.gdm = {
         enable = true;
-	wayland = cfg.wayland;
+        wayland = cfg.wayland;
       };
 
       desktopManager.gnome.enable = true;
