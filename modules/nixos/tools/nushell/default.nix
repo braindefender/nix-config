@@ -4,7 +4,7 @@ with lib;
 with lib.plusultra;
 
 let
-  cfg = config.plusultra.shell.nushell;
+  cfg = config.plusultra.tools.nushell;
   nushell_config = builtins.readFile ./nushell.nu;
   nushell_git_completions = builtins.readFile ./git-completions.nu;
   nushell_combined = builtins.concatStringsSep "\n" [
@@ -13,7 +13,7 @@ let
   ];
 in
 {
-  options.plusultra.shell.nushell = with types; {
+  options.plusultra.tools.nushell = with types; {
     enable = mkBoolOpt false "Enable Nushell?";
     default = mkBoolOpt false "Set Nushell as default shell?";
   };

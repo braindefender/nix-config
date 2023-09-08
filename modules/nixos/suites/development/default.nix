@@ -23,7 +23,9 @@ in {
       # Others
       go
       lldb
+      # Web
       nodejs
+      bun
     ] ++ (with pkgs.nodePackages_latest; [
       prettier
       typescript-language-server

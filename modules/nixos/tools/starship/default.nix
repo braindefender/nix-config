@@ -4,7 +4,7 @@ with lib;
 with lib.plusultra;
 
 let
-  cfg = config.plusultra.apps-cli.starship;
+  cfg = config.plusultra.tools.starship;
   starshipConfig = {
     enable = true;
 
@@ -61,7 +61,7 @@ let
   };
 in
 {
-  options.plusultra.apps-cli.starship = with types; {
+  options.plusultra.tools.starship = with types; {
     enable = mkBoolOpt false "Enable Starship command-line prompt?";
   };
 

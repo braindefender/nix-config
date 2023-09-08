@@ -3,25 +3,22 @@
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.shell.common;
+let cfg = config.plusultra.tools.common;
 
 in {
-  options.plusultra.shell.common = with types; {
-    enable = mkBoolOpt false "Enable common shell configuration?";
+  options.plusultra.tools.common = with types; {
+    enable = mkBoolOpt false "Enable common shell tools?";
   };
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       vim # Best editor ever
-      fzf # CLI fuzzy-finder
       killall
       unzip
       # file
       jq # CLI JSON processor
       # clac
       wget
-      # TODO: move to Home Manager
-      zoxide # a smarter cd command
       # TODO: make settings for shell
       ripgrep # recursive search for a regex in directory
       fd # simple, fast and user-friendly alternative to `find`

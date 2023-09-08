@@ -32,21 +32,22 @@ in {
         # flameshot = enabled;
       };
 
-      shell = {
+      tools = {
         common = enabled;
-        direnv = enabled;
+
         nushell = {
           enable = true;
           default = true;
         };
-      };
 
-      tools = {
         bat = enabled;
         exa = enabled;
+        direnv = enabled;
         fzf = enabled;
         git = enabled;
+        starship = enabled;
         tealdeer = enabled;
+        zoxide = enabled;
       };
 
       desktop = {
@@ -57,19 +58,18 @@ in {
         # blender = enabled;
         # discord = enabled;
         firefox = enabled;
-        gparted = enabled;
+        # gparted = enabled;
         kitty = enabled;
         # obsidian = enabled;
         # obs-studio = enabled;
-        telegram = enabled;
+        # telegram = enabled;
         vscode = enabled;
       };
 
       apps-cli = {
-        helix = enabled;
+        # helix = enabled;
         neovim = enabled;
-        starship = enabled;
-        yt-dlp = enabled;
+        # yt-dlp = enabled;
       };
     };
   };

@@ -3,26 +3,25 @@
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.shell.direnv;
+let cfg = config.plusultra.tools.zoxide;
 
-in
-{
-  options.plusultra.shell.direnv = with types; {
-    enable = mkBoolOpt false "Enable nix-direnv?";
+in {
+  options.plusultra.tools.zoxide = with types; {
+    enable = mkBoolOpt false "Enable zoxide?";
   };
 
   config = mkIf cfg.enable {
     plusultra.system.home.extraOptions = {
       programs = {
-        direnv = {
+        zoxide = {
           enable = true;
           enableBashIntegration = true;
           enableFishIntegration = true;
           enableZshIntegration = true;
           enableNushellIntegration = true;
-          nix-direnv.enable = true;
         };
       };
     };
+    environment.systemPackages = with pkgs; [ zoxide ];
   };
 }
