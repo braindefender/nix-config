@@ -23,7 +23,6 @@ in {
       # TODO: move to Home Manager
       zoxide # a smarter cd command
       # TODO: make settings for shell
-      exa # modern replacement for ls
       ripgrep # recursive search for a regex in directory
       fd # simple, fast and user-friendly alternative to `find`
       du-dust # A more intuitive version of du written in Rust

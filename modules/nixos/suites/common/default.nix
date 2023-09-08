@@ -42,6 +42,8 @@ in {
       };
 
       tools = {
+        bat = enabled;
+        exa = enabled;
         git = enabled;
         fzf = enabled;
       };
