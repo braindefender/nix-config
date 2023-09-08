@@ -29,10 +29,12 @@ in {
 
       services = {
         openssh = enabled;
+        # flameshot = enabled;
       };
 
       shell = {
         common = enabled;
+        direnv = enabled;
         nushell = {
           enable = true;
           default = true;
@@ -64,6 +66,7 @@ in {
         helix = enabled;
         neovim = enabled;
         starship = enabled;
+        yt-dlp = enabled;
       };
     };
   };
