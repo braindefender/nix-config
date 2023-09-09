@@ -3,10 +3,10 @@
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.apps-gui.discord;
+let cfg = config.plusultra.apps.discord;
 
 in {
-  options.plusultra.apps-gui.discord = with types; {
+  options.plusultra.apps.discord = with types; {
     enable = mkBoolOpt false "Enable Discord?";
   };
 

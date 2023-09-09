@@ -3,10 +3,10 @@
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.apps-gui.obs-studio;
+let cfg = config.plusultra.apps.obs-studio;
 
 in {
-  options.plusultra.apps-gui.obs-studio = with types; {
+  options.plusultra.apps.obs-studio = with types; {
     enable = mkBoolOpt false "Enable OBS Studio?";
   };
 

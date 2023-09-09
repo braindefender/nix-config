@@ -3,10 +3,10 @@
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.apps-gui.kitty;
+let cfg = config.plusultra.apps.kitty;
 
 in {
-  options.plusultra.apps-gui.kitty = with types; {
+  options.plusultra.apps.kitty = with types; {
     enable = mkBoolOpt false "Enable Kitty terminal emulator?";
   };
 

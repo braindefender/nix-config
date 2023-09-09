@@ -3,11 +3,11 @@
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.apps-cli.yt-dlp;
+let cfg = config.plusultra.tools.yt-dlp;
 
 in
 {
-  options.plusultra.apps-cli.yt-dlp = with types; {
+  options.plusultra.tools.yt-dlp = with types; {
     enable = mkBoolOpt false "Enable yt-dlp?";
   };
 

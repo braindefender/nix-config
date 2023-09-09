@@ -3,10 +3,10 @@
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.apps-gui.gparted;
+let cfg = config.plusultra.apps.gparted;
 
 in {
-  options.plusultra.apps-gui.gparted = with types; {
+  options.plusultra.apps.gparted = with types; {
     enable = mkBoolOpt false "Enable GParted?";
   };
 

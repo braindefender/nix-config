@@ -27,37 +27,16 @@ in {
         time = enabled;
       };
 
-      services = {
-        openssh = enabled;
-        # flameshot = enabled;
-      };
-
-      tools = {
-        common = enabled;
-
-        nushell = {
-          enable = true;
-          default = true;
-        };
-
-        bat = enabled;
-        exa = enabled;
-        direnv = enabled;
-        fzf = enabled;
-        git = enabled;
-        starship = enabled;
-        tealdeer = enabled;
-        zoxide = enabled;
-      };
-
       desktop = {
         gnome = enabled;
       };
 
-      apps-gui = {
+      apps = {
         # blender = enabled;
         # discord = enabled;
         firefox = enabled;
+        chromium = enabled;
+        gimp = enabled;
         # gparted = enabled;
         kitty = enabled;
         # obsidian = enabled;
@@ -66,10 +45,31 @@ in {
         vscode = enabled;
       };
 
-      apps-cli = {
+      tools = {
+        common = enabled;
+        aliases = enabled;
+
+        nushell = {
+          enable = true;
+          default = true;
+        };
+
+        bat = enabled;
+        direnv = enabled;
+        exa = enabled;
+        fzf = enabled;
+        git = enabled;
         # helix = enabled;
         neovim = enabled;
+        starship = enabled;
+        tealdeer = enabled;
         # yt-dlp = enabled;
+        zoxide = enabled;
+      };
+
+      services = {
+        openssh = enabled;
+        # flameshot = enabled;
       };
     };
   };

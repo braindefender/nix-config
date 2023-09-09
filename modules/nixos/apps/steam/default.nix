@@ -3,10 +3,10 @@
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.apps-gui.steam;
+let cfg = config.plusultra.apps.steam;
 
 in {
-  options.plusultra.apps-gui.steam = with types; {
+  options.plusultra.apps.steam = with types; {
     enable = mkBoolOpt false "Enable Steam?";
   };
 

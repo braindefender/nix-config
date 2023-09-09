@@ -4,7 +4,7 @@ with lib;
 with lib.plusultra;
 
 let
-  cfg = config.plusultra.apps-gui.firefox;
+  cfg = config.plusultra.apps.firefox;
   defaultSettings = {
     "browser.aboutwelcome.enabled" = false;
     "browser.aboutConfig.showWarning" = false;
@@ -12,7 +12,7 @@ let
   };
 in
 {
-  options.plusultra.apps-gui.firefox = with types; {
+  options.plusultra.apps.firefox = with types; {
     enable = mkBoolOpt false "Enable Firefox?";
     extraConfig = mkOpt str "" "Extra configuration for the user profile JS file.";
     userChrome = mkOpt str "" "Extra configuration for the user chrome CSS file.";

@@ -3,10 +3,10 @@
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.apps-cli.neovim;
+let cfg = config.plusultra.tools.neovim;
 
 in {
-  options.plusultra.apps-cli.neovim = with types; {
+  options.plusultra.tools.neovim = with types; {
     enable = mkBoolOpt false "Enable neovim?";
   };
 

@@ -3,10 +3,10 @@
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.apps-gui.blender;
+let cfg = config.plusultra.apps.blender;
 
 in {
-  options.plusultra.apps-gui.blender = with types; {
+  options.plusultra.apps.blender = with types; {
     enable = mkBoolOpt false "Enable Blender?";
   };
 

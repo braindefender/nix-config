@@ -3,10 +3,10 @@
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.apps-gui.telegram;
+let cfg = config.plusultra.apps.telegram;
 
 in {
-  options.plusultra.apps-gui.telegram = with types; {
+  options.plusultra.apps.telegram = with types; {
     enable = mkBoolOpt false "Enable Telegram Desktop?";
   };
 

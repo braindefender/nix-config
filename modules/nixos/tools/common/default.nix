@@ -13,16 +13,31 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       vim # Best editor ever
-      killall
+      # File Management
       unzip
-      # file
-      jq # CLI JSON processor
-      # clac
-      wget
+
+      ### Shell Utils
       # TODO: make settings for shell
-      ripgrep # recursive search for a regex in directory
+      killall
+      jq # CLI JSON processor
       fd # simple, fast and user-friendly alternative to `find`
+      ripgrep # recursive search for a regex in directory
+      rsync # Fast and versatile file copying tool for remote and local files
+      curl # CLI for transfer data over URL
+      wget # almost the same as curl
+      clac # stack-based calculator
+      imagemagick # raster and vector image editor and converter
+      ffmpeg-full # bunch of codecs and converter utilities
+
+      ### Shell Apps
       du-dust # A more intuitive version of du written in Rust
+      btop # Resource monitor
+
+      ### Hardware Utils
+      usbutils
+      pciutils
+      smartmontools
+      wirelesstools
     ];
   };
 }

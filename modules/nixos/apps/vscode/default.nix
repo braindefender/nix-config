@@ -4,13 +4,13 @@ with lib;
 with lib.plusultra;
 
 let
-  cfg = config.plusultra.apps-gui.vscode;
+  cfg = config.plusultra.apps.vscode;
   font = "CaskaydiaCove Nerd Font Mono";
   prettier = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
   wayland-fix = { NIXOS_OZONE_WL = "1"; };
 in
 {
-  options.plusultra.apps-gui.vscode = with types; {
+  options.plusultra.apps.vscode = with types; {
     enable = mkBoolOpt false "Enable Visual Studio Code?";
   };
 
