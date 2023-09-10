@@ -21,6 +21,7 @@ in {
       system = {
         doas = enabled;
         fonts = enabled;
+        gpg = enabled;
         keyring = enabled;
         locale = enabled;
         nix = enabled;
@@ -61,6 +62,7 @@ in {
         git = enabled;
         # helix = enabled;
         neovim = enabled;
+        pass = enabled;
         starship = enabled;
         tealdeer = enabled;
         # yt-dlp = enabled;

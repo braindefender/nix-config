@@ -16,9 +16,14 @@ in {
     ];
 
     plusultra.system.home.extraOptions = {
-      programs.gpg-agent = {
+      programs = {
+        gpg = {
+          enable = true;
+        };
+      };
+      services.gpg-agent = {
         enable = true;
-        enableSSHSupport = true;
+        enableSshSupport = true;
         enableBashIntegration = true;
         enableFishIntegration = true;
         enableZshIntegration = true;

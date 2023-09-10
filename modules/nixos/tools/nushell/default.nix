@@ -28,6 +28,10 @@ in
           enable = true;
 
           configFile.text = nushell_combined;
+
+          extraConfig = ''
+            def l [] { ls | sort-by type name -i }
+          '';
         };
       };
     };
