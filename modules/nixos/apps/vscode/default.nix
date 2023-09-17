@@ -56,6 +56,7 @@ in
 
         keybindings = [
           { key = "ctrl+'"; command = "workbench.action.terminal.toggleTerminal"; }
+          { key = "ctrl+p"; command = "-extension.vim_ctrl+p"; }
         ];
 
         userSettings = {

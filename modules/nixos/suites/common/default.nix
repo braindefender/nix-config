@@ -61,6 +61,7 @@ in {
         fzf = enabled;
         git = enabled;
         # helix = enabled;
+        lf = enabled;
         neovim = enabled;
         pass = enabled;
         starship = enabled;
