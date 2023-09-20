@@ -16,9 +16,10 @@ with lib.plusultra;
   plusultra = {
     suites = {
       common = enabled;
+      development = enabled;
     };
     system = {
-      boot.systemd-boot = enabled;
+      boot.grub = enabled;
     };
   };
 

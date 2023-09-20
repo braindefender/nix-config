@@ -27,6 +27,6 @@ in
         nushell.shellAliases = aliases;
       };
     };
-    environment.systemPackages = with pkgs; [ exa ];
+    environment.systemPackages = with pkgs; [ bat ];
   };
 }

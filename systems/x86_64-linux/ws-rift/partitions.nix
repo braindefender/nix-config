@@ -1,49 +1,40 @@
 { config, ... }:
 
-let
-  label = "NIX";
-  btrfsOptions = [
-    "space_cache=v2"
-    "compress=zstd:2"
-    "discard=async"
-    "noatime"
-    "ssd"
-  ];
-in
 {
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-label/${label}";
-      fsType = "btrfs";
-      options = btrfsOptions ++ [ "subvol=root" ];
+      device = "rpool/root";
+      fsType = "zfs";
     };
 
     "/home" = {
-      device = "/dev/disk/by-label/${label}";
-      fsType = "btrfs";
-      options = btrfsOptions ++ [ "subvol=home" ];
+      device = "rpool/home";
+      fsType = "zfs";
+    };
+
+    "/data" = {
+      device = "rpool/data";
+      fsType = "zfs";
     };
 
     "/nix" = {
-      device = "/dev/disk/by-label/${label}";
-      fsType = "btrfs";
-      options = btrfsOptions ++ [ "subvol=nix" ];
+      device = "rpool/nix";
+      fsType = "zfs";
     };
 
-    "/log" = {
-      device = "/dev/disk/by-label/${label}";
-      fsType = "btrfs";
-      options = btrfsOptions ++ [ "subvol=log" ];
-      neededForBoot = true;
+    "/boot" = {
+      device = "/dev/disk/by-label/NIXBOOT";
+      fsType = "vfat";
     };
 
-    ${config.boot.loader.efi.efiSysMountPoint} = {
+    "/boot/EFI" = {
       device = "/dev/disk/by-label/EFI";
       fsType = "vfat";
     };
   };
 
-  swapDevices = [
-    { device = "/dev/disk/by-label/SWP"; }
-  ];
+  swapDevices = [ ];
+
+  # needed for ZFS configuration
+  networking.hostId = "b27a47ea";
 }

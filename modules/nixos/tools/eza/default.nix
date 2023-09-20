@@ -3,17 +3,17 @@
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.tools.exa;
+let cfg = config.plusultra.tools.eza;
 
 in {
-  options.plusultra.tools.exa = with types; {
-    enable = mkBoolOpt false "Enable exa?";
+  options.plusultra.tools.eza = with types; {
+    enable = mkBoolOpt false "Enable eza?";
   };
 
   config = mkIf cfg.enable {
     plusultra.system.home.extraOptions = {
       programs = {
-        exa = {
+        eza = {
           enable = true;
           icons = true;
           git = true;
@@ -27,15 +27,15 @@ in {
         nushell = {
           shellAliases = with pkgs; {
             # ls = "exa"; # turned of because of nushell great ls command
-            ll = "exa -l";
-            la = "exa -a";
-            lt = "exa --tree";
-            lla = "exa -la";
+            ll = "eza -l";
+            la = "eza -a";
+            lt = "eza --tree";
+            lla = "eza -la";
           };
         };
 
       };
     };
-    environment.systemPackages = with pkgs; [ exa ];
+    environment.systemPackages = with pkgs; [ eza ];
   };
 }

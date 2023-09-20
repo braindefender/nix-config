@@ -14,7 +14,8 @@ in {
     boot.loader = {
       grub = {
         enable = true;
-        device = "/dev/sda"; # TODO: fix
+        device = "nodev";
+	efiSupport = true;
         useOSProber = false;
         configurationLimit = 10;
       };

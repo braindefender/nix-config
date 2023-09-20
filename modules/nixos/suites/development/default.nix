@@ -23,6 +23,7 @@ in {
       # Others
       go
       lldb
+      sapling
       # Web
       nodejs
       bun

@@ -29,20 +29,24 @@ in {
       };
 
       desktop = {
-        gnome = enabled;
+        gtk = enabled;
+        hypr = enabled;
+        # gnome = enabled;
+        # sway = enabled;
+        # i3wm = enabled;
       };
 
       apps = {
-        # blender = enabled;
-        # discord = enabled;
+        blender = enabled;
+        discord = enabled;
         firefox = enabled;
         chromium = enabled;
         gimp = enabled;
-        # gparted = enabled;
+        gparted = enabled;
         kitty = enabled;
-        # obsidian = enabled;
-        # obs-studio = enabled;
-        # telegram = enabled;
+        obsidian = enabled;
+        obs-studio = enabled;
+        telegram = enabled;
         vscode = enabled;
       };
 
@@ -57,22 +61,22 @@ in {
 
         bat = enabled;
         direnv = enabled;
-        exa = enabled;
+        eza = enabled;
         fzf = enabled;
         git = enabled;
-        # helix = enabled;
+        helix = enabled;
         lf = enabled;
         neovim = enabled;
         pass = enabled;
         starship = enabled;
         tealdeer = enabled;
-        # yt-dlp = enabled;
+        yt-dlp = enabled;
         zoxide = enabled;
       };
 
       services = {
         openssh = enabled;
-        # flameshot = enabled;
+        flameshot = enabled;
       };
     };
   };

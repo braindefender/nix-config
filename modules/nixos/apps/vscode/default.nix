@@ -64,6 +64,7 @@ in
           "security.workspace.trust.enabled" = false;
           "extensions.ignoreRecommendations" = true;
           "window.titleBarStyle" = "custom";
+          "window.zoomLevel" = 1;
 
           # Workbench
           "workbench.settings.useSplitJSON" = true;
