@@ -160,17 +160,32 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1694959747,
-        "narHash": "sha256-CXQ2MuledDVlVM5dLC4pB41cFlBWxRw4tCBsFrq3cRk=",
+        "lastModified": 1695145219,
+        "narHash": "sha256-Eoe9IHbvmo5wEDeJXKFOpKUwxYJIOxKUesounVccNYk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "970a59bd19eff3752ce552935687100c46e820a5",
+        "rev": "5ba549eafcf3e33405e5f66decd1a72356632b96",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nur": {
+      "locked": {
+        "lastModified": 1695329094,
+        "narHash": "sha256-IQSMk3jr38WwEV9VvcipUELaqmSpE97XO0KEzLgbOqM=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "41797d553c8bc067fa3db0681db940b135590ab5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
         "type": "github"
       }
     },
@@ -217,6 +232,7 @@
         "home-manager": "home-manager",
         "nix-neovim": "nix-neovim",
         "nixpkgs": "nixpkgs",
+        "nur": "nur",
         "replugged": "replugged",
         "snowfall-lib": "snowfall-lib_2",
         "unstable": "unstable"
@@ -255,27 +271,26 @@
         ]
       },
       "locked": {
-        "lastModified": 1692259977,
-        "narHash": "sha256-KZIElNWu0bb4T0axXDSn7aDb96h+6pYUKJWIbZj0E9A=",
+        "lastModified": 1694832968,
+        "narHash": "sha256-9MiTlrEtsVZngGvUG44dc9oL6u7Iy2H/ZQsF7dfZzfI=",
         "owner": "snowfallorg",
         "repo": "lib",
-        "rev": "32b5448e283b9ede9f88b393be31404e33099689",
+        "rev": "83e7839dd1aaa7694b88f50963716dc1bc5de371",
         "type": "github"
       },
       "original": {
         "owner": "snowfallorg",
-        "ref": "dev",
         "repo": "lib",
         "type": "github"
       }
     },
     "unstable": {
       "locked": {
-        "lastModified": 1694959747,
-        "narHash": "sha256-CXQ2MuledDVlVM5dLC4pB41cFlBWxRw4tCBsFrq3cRk=",
+        "lastModified": 1695145219,
+        "narHash": "sha256-Eoe9IHbvmo5wEDeJXKFOpKUwxYJIOxKUesounVccNYk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "970a59bd19eff3752ce552935687100c46e820a5",
+        "rev": "5ba549eafcf3e33405e5f66decd1a72356632b96",
         "type": "github"
       },
       "original": {

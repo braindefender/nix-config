@@ -10,7 +10,7 @@
 
     # Snowfall Lib
     snowfall-lib = {
-      url = "github:snowfallorg/lib/dev";
+      url = "github:snowfallorg/lib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -19,6 +19,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # NixOS User Repository
+    nur.url = "github:nix-community/NUR";
 
     # Discord Replugged
     replugged = {
@@ -65,10 +68,12 @@
 
       overlays = with inputs; [
         nix-neovim.overlays.default
+        nur.overlay
       ];
 
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager
+        nur.nixosModules.nur
       ];
     };
 }

@@ -17,6 +17,10 @@ in
         password-store = {
           enable = true;
         };
+        browserpass = {
+          enable = true;
+          browsers = [ "firefox" "chromium" "chrome" ];
+        };
       };
     };
     environment.systemPackages = with pkgs; [ pass ];

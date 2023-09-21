@@ -25,24 +25,21 @@ in
     plusultra.system.home.extraOptions = {
       programs.firefox = {
         enable = true;
-        package = pkgs.firefox.override (
-          {
-            cfg = {
-              enableBrowserpass = true;
-              enableGnomeExtensions = config.plusultra.desktop.gnome.enable;
-            };
-
-            extraNativeMessagingHosts =
-              optional
-                config.plusultra.desktop.gnome.enable
-                pkgs.gnomeExtensions.gsconnect;
-          }
-        );
 
         profiles.${config.plusultra.user.name} = {
           inherit (cfg) extraConfig userChrome settings;
           id = 0;
           name = config.plusultra.user.name;
+          extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+            browserpass
+            enhancer-for-youtube
+            react-devtools
+            sponsorblock
+            stylus
+            ublock-origin
+            vimium
+            # tweak and savefrom are not present :(
+          ];
         };
       };
     };
