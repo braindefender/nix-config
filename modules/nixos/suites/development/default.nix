@@ -11,6 +11,19 @@ in {
   };
 
   config = mkIf cfg.enable {
+
+    # Docker
+    virtualisation.docker = {
+      enable = true;
+      storageDriver = "zfs";
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
+    };
+    plusultra.user.extraGroups = [ "docker" ];
+
+    # Packages
     environment.systemPackages = with pkgs; [
       # C/C++
       clang

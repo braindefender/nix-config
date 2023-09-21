@@ -235,6 +235,7 @@
         "nur": "nur",
         "replugged": "replugged",
         "snowfall-lib": "snowfall-lib_2",
+        "stable": "stable",
         "unstable": "unstable"
       }
     },
@@ -281,6 +282,22 @@
       "original": {
         "owner": "snowfallorg",
         "repo": "lib",
+        "type": "github"
+      }
+    },
+    "stable": {
+      "locked": {
+        "lastModified": 1695334257,
+        "narHash": "sha256-j84d0GL3WdRSB/+85if5Vr8UOQmwUV0CO18pEqAPWYI=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "bf4e39d1088dc994dd1a1bfc6a8797696423e7c8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "release-23.05",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },

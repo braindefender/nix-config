@@ -19,7 +19,7 @@ in {
       };
 
       system = {
-        doas = enabled;
+        # doas = enabled; # too much pain
         fonts = enabled;
         gpg = enabled;
         keyring = enabled;

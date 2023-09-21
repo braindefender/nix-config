@@ -8,6 +8,9 @@
     # NixPkgs Unstable
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # NixPkgs Stable
+    stable.url = "github:nixos/nixpkgs/release-23.05";
+
     # Snowfall Lib
     snowfall-lib = {
       url = "github:snowfallorg/lib";
