@@ -16,6 +16,7 @@ in {
         audio = enabled;
         keyboard = enabled;
         networking = enabled;
+        virtualisation = enabled;
       };
 
       system = {
