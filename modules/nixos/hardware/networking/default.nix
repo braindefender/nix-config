@@ -17,10 +17,19 @@ in
   config = mkIf cfg.enable {
     plusultra.user.extraGroups = [ "networkmanager" ];
 
+    # environment.systemPackages = with pkgs; [ networkmanager-l2tp ];
+
+    # services.xl3tpd.enable = true;
+
+    # services.strongswan = {
+    #   enable = true;
+    #   secrets = [ "ipsec.d/ipsec.nm-l2tp.secrets" ];
+    # };
+
     networking = {
       networkmanager = {
         enable = true;
-        dhcp = "internal";
+        # enableStrongSwan = true;
       };
 
       hosts = {

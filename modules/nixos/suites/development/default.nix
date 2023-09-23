@@ -22,6 +22,7 @@ in {
       };
     };
     plusultra.user.extraGroups = [ "docker" ];
+    # plusultra.hardware.networking.hosts = { };
 
     # Packages
     environment.systemPackages = with pkgs; [
@@ -36,6 +37,7 @@ in {
       # Others
       go
       lldb
+      docker-compose
       sapling
       # Web
       nodejs

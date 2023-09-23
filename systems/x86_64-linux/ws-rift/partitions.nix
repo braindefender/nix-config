@@ -26,11 +26,6 @@
       device = "/dev/disk/by-label/NIXBOOT";
       fsType = "vfat";
     };
-
-    "/boot/EFI" = {
-      device = "/dev/disk/by-label/EFI";
-      fsType = "vfat";
-    };
   };
 
   swapDevices = [ ];
