@@ -5,11 +5,14 @@ with lib.plusultra;
 
 let
   cfg = config.plusultra.hardware.virtualisation;
-  gpuIds = [ "10de:2216" ];
+  gpuIds = [
+    "10de:2216" # Video
+    "10de:1aef" # Audio
+  ];
 in
 {
   options.plusultra.hardware.virtualisation = with types; {
-    enable = mkBoolOpt false "Enable virtualisation?";
+    enable = mkBoolOpt false "Enable KVM GPU virtualisation?";
   };
 
   config = mkIf cfg.enable {
@@ -52,14 +55,14 @@ in
         "vfio_pci"
         "vfio_virqfd"
         "vfio_iommu_type1"
-
-        "nvidia"
-        "nvidia_drm"
-        "nvidia_uvm"
-        "nvidia_modeset"
       ];
 
-      kernelParams = [ "intel_iommu=on" "iommu=pt" "vfio-pci.ids=10de:2216" ];
+      kernelParams = [
+        "iommu=pt"
+        "intel_iommu=on"
+      ] ++ lib.optional
+        cfg.enable
+        ("vfio-pci.ids=" + lib.concatStringsSep "," gpuIds);
 
       # # Turn off NVidia Drivers
       # blacklistedKernelModules = [ "nvidia" "nouveau" ];
