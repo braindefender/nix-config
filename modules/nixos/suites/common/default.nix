@@ -45,6 +45,7 @@ in {
         gimp = enabled;
         gparted = enabled;
         kitty = enabled;
+        krusader = enabled;
         obsidian = enabled;
         obs-studio = enabled;
         telegram = enabled;

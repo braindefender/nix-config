@@ -48,6 +48,7 @@ let
     windowrule = size 24% 24% ,title:^(Picture-in-Picture)$
     windowrule = float,title:^(Media viewer)$
     windowrulev2 = float,class:^(code)$,title:^(Open File)$
+    windowrulev2 = float,class:^(virt-manager)$
   '';
 
   hyprlandConf = ''
