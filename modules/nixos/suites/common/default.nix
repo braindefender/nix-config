@@ -49,6 +49,7 @@ in {
         obs-studio = enabled;
         telegram = enabled;
         vscode = enabled;
+        qbittorrent = enabled;
       };
 
       tools = {

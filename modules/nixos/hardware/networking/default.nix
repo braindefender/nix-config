@@ -32,6 +32,8 @@ in
         # enableStrongSwan = true;
       };
 
+      firewall.checkReversePath = "loose";
+
       hosts = {
         ${localhost} = [ "local.test" ] ++ (cfg.hosts.${localhost} or [ ]);
       } // cfg.hosts;
