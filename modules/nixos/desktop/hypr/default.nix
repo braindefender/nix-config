@@ -119,6 +119,14 @@ in
   };
 
   config = mkIf cfg.enable {
+    plusultra.system.home.extraOptions = {
+      programs.nushell.extraLogin = ''
+        if ((not 'DISPLAY' in $env) and (tty) == "/dev/tty1") {
+          Hyprland
+        }
+      '';
+    };
+
     environment = {
       sessionVariables = {
         GDK_BACKEND = "wayland";
@@ -146,7 +154,7 @@ in
     programs.hyprland = {
       enable = true;
       xwayland.enable = true;
-      enableNvidiaPatches = true;
+      enableNvidiaPatches = lib.mkDefault true;
     };
 
     programs.waybar.enable = true;
