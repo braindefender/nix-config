@@ -9,6 +9,12 @@ let
     "10de:2216" # Video
     "10de:1aef" # Audio
   ];
+  modules = [
+    "vfio_virqfd"
+    "vfio_pci"
+    "vfio_iommu_type1"
+    "vfio"
+  ];
 in
 {
   options.plusultra.hardware.virtualisation = with types; {
@@ -16,62 +22,40 @@ in
   };
 
   config = mkIf cfg.enable {
+    boot = {
+      kernelModules = modules;
+      blacklistedKernelModules = [ "nvidia" "nouveau" ];
 
-    # Enable dcont to store VirtManager settings
-    programs.dconf.enable = true;
+      kernelParams = [ "intel_iommu=on" "pcie_acs_override=downstream,multifunction" ];
+      extraModprobeConfig = "options vfio-pci ids=" + lib.concatStringsSep "," gpuIds;
 
-    plusultra.user.extraGroups = [ "libvirtd" ];
-
-    environment.systemPackages = with pkgs; [
-      virt-manager
-      virt-viewer
-      spice
-      spice-gtk
-      spice-protocol
-      win-virtio
-      win-spice
-      gnome.adwaita-icon-theme
-    ];
+      # kernelPatches = [
+      #   {
+      #     name = "add-acs-overrides";
+      #     patch = pkgs.fetchurl {
+      #       name = "add-acs-overrides.patch";
+      #       url =
+      #         "https://aur.archlinux.org/cgit/aur.git/plain/add-acs-overrides.patch?h=linux-vfio&id=6f5c5ff2e42abf6606564383d5cb3c56b13d895e";
+      #       sha256 = "1qd68s9r0ppynksbffqn2qbp1whqpbfp93dpccp9griwhx5srx6v";
+      #     };
+      #   }
+      # ];
+    };
 
     virtualisation = {
       libvirtd = {
         enable = true;
-
         qemu = {
           swtpm.enable = true;
           ovmf.enable = true;
           ovmf.packages = [ pkgs.OVMFFull.fd ];
         };
       };
-
-      spiceUSBRedirection.enable = true;
     };
 
-    services.spice-vdagentd.enable = true;
+    environment.systemPackages = with pkgs; [ virt-manager ];
 
-    boot = {
-      initrd.kernelModules = [
-        "vfio"
-        "vfio_pci"
-        "vfio_virqfd"
-        "vfio_iommu_type1"
-      ];
-
-      kernelParams = [
-        "iommu=pt"
-        "intel_iommu=on"
-      ] ++ lib.optional
-        cfg.enable
-        ("vfio-pci.ids=" + lib.concatStringsSep "," gpuIds);
-
-      # # Turn off NVidia Drivers
-      # blacklistedKernelModules = [ "nvidia" "nouveau" ];
-    };
-
-    services.udev.extraRules = ''
-      SUBSYSTEM=="vfio", OWNER="root", GROUP="kvm"
-    '';
-
-    hardware.opengl.enable = true;
+    plusultra.user.extraGroups = [ "libvirtd" ];
+    programs.hyprland.enableNvidiaPatches = false;
   };
 }

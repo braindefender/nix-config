@@ -14,6 +14,10 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ nix-index nixpkgs-fmt ];
 
+    environment.variables = {
+      NIXPKGS_ALLOW_UNFREE = "1";
+    };
+
     nix =
       let users = [ "root" config.plusultra.user.name ];
       in {
@@ -38,4 +42,3 @@ in {
       };
   };
 }
-
