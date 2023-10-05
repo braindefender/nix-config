@@ -38,7 +38,6 @@ in {
       };
 
       apps = {
-        blender = enabled;
         discord = enabled;
         firefox = enabled;
         chromium = enabled;
@@ -51,6 +50,7 @@ in {
         telegram = enabled;
         vscode = enabled;
         qbittorrent = enabled;
+        watershot = enabled;
       };
 
       tools = {

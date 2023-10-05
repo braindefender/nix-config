@@ -17,6 +17,8 @@ with lib.plusultra;
     suites = {
       common = enabled;
       development = enabled;
+      modeling = enabled;
+      work = enabled;
     };
     system = {
       boot.grub = enabled;
