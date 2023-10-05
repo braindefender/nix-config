@@ -16,6 +16,7 @@ in {
 
     environment.variables = {
       NIXPKGS_ALLOW_UNFREE = "1";
+      NIXPKGS_ALLOW_INSECURE = "1";
     };
 
     nix =
@@ -24,6 +25,7 @@ in {
         package = cfg.package;
 
         settings = {
+          cores = 4;
           experimental-features = [ "nix-command" "flakes" ];
           http-connections = 50;
           warn-dirty = false;
