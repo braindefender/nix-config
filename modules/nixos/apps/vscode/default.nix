@@ -60,9 +60,15 @@ in
         ];
 
         userSettings = {
+          # Turn off fucking prompts
+          "update.mode" = "none";
           "telemetry.telemetryLevel" = "off";
+          "git.openRepositoryInParentFolders" = "always";
           "security.workspace.trust.enabled" = false;
+          "extensions.autoCheckUpdates" = false;
           "extensions.ignoreRecommendations" = true;
+
+          # Window
           "window.titleBarStyle" = "custom";
           "window.zoomLevel" = 1;
 
