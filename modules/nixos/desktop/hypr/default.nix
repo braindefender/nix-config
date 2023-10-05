@@ -23,8 +23,8 @@ let
     bindl=CTRL_SUPER,left,workspace,-1
     bindl=CTRL_SUPER,right,workspace,+1
 
-    bind = CTRLSHIFT,left,movetoworkspace,-1
-    bind = CTRLSHIFT,right,movetoworkspace,+1
+    bind = SUPERSHIFT,left,movetoworkspace,-1
+    bind = SUPERSHIFT,right,movetoworkspace,+1
 
     bind = SUPER,Return,exec,${pkgs.kitty}/bin/kitty
     bind = SUPER,Escape,exit,
@@ -68,7 +68,7 @@ let
           drop_shadow = false
           blur {
             enabled = true
-    	new_optimizations = true
+    	      new_optimizations = true
           }
         }
 
@@ -148,6 +148,7 @@ in
         swww
         slurp
         grim
+        swappy
       ];
     };
 
