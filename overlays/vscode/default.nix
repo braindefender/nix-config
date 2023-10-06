@@ -1,5 +1,5 @@
 { channels, ... }:
 
 final: prev: {
-  inherit (channels.stable) vscode;
+  inherit (channels.unstable) vscode;
 }

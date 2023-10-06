@@ -19,6 +19,8 @@ with lib.plusultra;
     kernelModules = [ "kvm-intel" ];
   };
 
+  powerManagement.cpuFreqGovernor = "ondemand";
+
   hardware = {
     # Intel microcode
     cpu.intel.updateMicrocode =
