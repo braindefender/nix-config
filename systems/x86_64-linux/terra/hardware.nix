@@ -19,7 +19,7 @@ with lib.plusultra;
     kernelModules = [ "kvm-intel" ];
   };
 
-  powerManagement.cpuFreqGovernor = "ondemand";
+  powerManagement.cpuFreqGovernor = "performance";
 
   hardware = {
     # Intel microcode

@@ -28,7 +28,7 @@ in
       kernelModules = modules;
       blacklistedKernelModules = [ "nvidia" "nouveau" ];
 
-      kernelParams = [ "intel_iommu=on" ];
+      kernelParams = [ "intel_iommu=on preempt=voluntary" ];
       extraModprobeConfig = "options vfio-pci ids=" + lib.concatStringsSep "," gpuIds;
     };
 
