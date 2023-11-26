@@ -20,7 +20,7 @@ in {
           enableAliases = true;
           extraOptions = [
             "--group-directories-first"
-            "--time-style long-iso"
+            "--time-style=long-iso"
             "--no-user"
           ];
         };

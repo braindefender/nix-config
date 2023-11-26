@@ -61,7 +61,6 @@ let
 
         decoration {
           rounding = 8
-          multisample_edges = true
           fullscreen_opacity = 1
           inactive_opacity = 0.9
           active_opacity = 1
@@ -106,6 +105,7 @@ let
         }
 
         monitor=,3440x1440@120,0x0,1
+	env=WLR_DRM_DEVICES,/dev/dri/card0
 
         ${execute}
         ${bindings}
@@ -132,6 +132,8 @@ in
         GDK_BACKEND = "wayland";
         MOZ_ENABLE_WAYLAND = "1";
         WLR_NO_HARDWARE_CURSORS = "1";
+        WLR_DRM_DEVICES = "/dev/dri/card0";
+        WLR_RENDER_DRM_DEVICES = "/dev/dri/renderD128";
       };
 
       variables = {
@@ -155,10 +157,12 @@ in
     programs.hyprland = {
       enable = true;
       xwayland.enable = true;
-      enableNvidiaPatches = lib.mkDefault true;
+      enableNvidiaPatches = lib.mkDefault false;
     };
 
     programs.waybar.enable = true;
+
+    hardware.opengl.enable = true;
 
     xdg.portal = {
       enable = true;

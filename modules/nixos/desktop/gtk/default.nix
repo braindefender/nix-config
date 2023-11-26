@@ -34,6 +34,8 @@ in
       XCURSOR_THEME = cfg.cursor.name;
     };
 
+    programs.dconf.enable = true;
+
     plusultra.system.home.extraOptions = {
       gtk = {
         enable = true;

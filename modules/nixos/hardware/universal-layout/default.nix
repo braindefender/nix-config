@@ -21,9 +21,6 @@ in
 
   config = mkIf cfg.enable {
     services.xserver = {
-      # TODO: layout is unaccessible on build time. needs to fix
-      # layout = cfg.defaultLayout;
-
       extraLayouts = {
         universalLayoutNormal = mkIf cfg.normal {
           description = "Universal Layout Normal";

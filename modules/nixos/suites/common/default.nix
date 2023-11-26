@@ -31,10 +31,16 @@ in {
 
       desktop = {
         gtk = enabled;
-        hypr = enabled;
+
+        ### X Window System
+        startx = enabled;
+        leftwm = enabled;
+        # i3wm = enabled;
+
+        ### Wayland Shit
+        # hypr = enabled;
         # gnome = enabled;
         # sway = enabled;
-        # i3wm = enabled;
       };
 
       apps = {
@@ -45,11 +51,13 @@ in {
         gparted = enabled;
         kitty = enabled;
         krusader = enabled;
+        moonlight = enabled;
         obsidian = enabled;
         obs-studio = enabled;
+        qbittorrent = enabled;
+        rofi = enabled;
         telegram = enabled;
         vscode = enabled;
-        qbittorrent = enabled;
         watershot = enabled;
       };
 
