@@ -45,18 +45,19 @@ in {
 
       apps = {
         barrier = enabled;
+        chromium = enabled;
         discord = enabled;
         dunst = enabled;
+        figma = enabled;
         firefox = enabled;
         flameshot = enabled;
-        chromium = enabled;
         gimp = enabled;
         gparted = enabled;
         kitty = enabled;
         krusader = enabled;
         moonlight = enabled;
-        obsidian = enabled;
         obs-studio = enabled;
+        obsidian = enabled;
         polybar = enabled;
         qbittorrent = enabled;
         rofi = enabled;
