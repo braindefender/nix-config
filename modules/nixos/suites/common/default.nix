@@ -44,8 +44,11 @@ in {
       };
 
       apps = {
+        barrier = enabled;
         discord = enabled;
+        dunst = enabled;
         firefox = enabled;
+        flameshot = enabled;
         chromium = enabled;
         gimp = enabled;
         gparted = enabled;
@@ -54,11 +57,12 @@ in {
         moonlight = enabled;
         obsidian = enabled;
         obs-studio = enabled;
+        polybar = enabled;
         qbittorrent = enabled;
         rofi = enabled;
         telegram = enabled;
         vscode = enabled;
-        watershot = enabled;
+        # watershot = enabled;
       };
 
       tools = {
@@ -87,7 +91,6 @@ in {
 
       services = {
         openssh = enabled;
-        flameshot = enabled;
       };
     };
   };
