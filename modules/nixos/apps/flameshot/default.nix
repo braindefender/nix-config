@@ -4,11 +4,11 @@ with lib;
 with lib.plusultra;
 
 let
-  cfg = config.plusultra.services.flameshot;
+  cfg = config.plusultra.apps.flameshot;
   username = config.plusultra.user.name;
 in
 {
-  options.plusultra.services.flameshot = with types;
+  options.plusultra.apps.flameshot = with types;
     {
       enable = mkBoolOpt false "Enable Flameshot?";
     };
@@ -30,7 +30,7 @@ in
             contrastUiColor = "#000000";
             drawColor = "#ff00ff";
             drawThickness = 5;
-            savePath = "${config.users.users.${username}.home}/Screenshots";
+            savePath = "${config.users.users.${username}.home}/Nexus/imgs/screens";
           };
         };
       };
