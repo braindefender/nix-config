@@ -55,8 +55,18 @@ in
         ];
 
         keybindings = [
-          { key = "ctrl+'"; command = "workbench.action.terminal.toggleTerminal"; }
-          { key = "ctrl+p"; command = "-extension.vim_ctrl+p"; }
+          {
+            key = "ctrl+p";
+            command = "-extension.vim_ctrl+p";
+          }
+          {
+            key = "ctrl+shift+[Semicolon]";
+            command = "workbench.action.terminal.new";
+          }
+          {
+            key = "ctrl+[Semicolon]";
+            command = "workbench.action.terminal.toggleTerminal";
+          }
         ];
 
         userSettings = {
@@ -67,6 +77,7 @@ in
           "security.workspace.trust.enabled" = false;
           "extensions.autoCheckUpdates" = false;
           "extensions.ignoreRecommendations" = true;
+          "gitlens.plusFeatures.enabled" = false;
 
           # Window
           "window.titleBarStyle" = "custom";
@@ -192,6 +203,11 @@ in
           "[javascriptreact]" = prettier;
           "[typescript]" = prettier;
           "[typescriptreact]" = prettier;
+
+          # Files Associations
+          "files.associations" = {
+            "*.ron" = "rust";
+          };
         };
       };
     };
