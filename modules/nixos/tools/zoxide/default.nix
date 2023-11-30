@@ -19,9 +19,9 @@ in {
           enableFishIntegration = true;
           enableZshIntegration = true;
           enableNushellIntegration = true;
+          package = pkgs.plusultra.zoxide;
         };
       };
     };
-    environment.systemPackages = with pkgs; [ zoxide ];
   };
 }
