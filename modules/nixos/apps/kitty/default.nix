@@ -17,7 +17,7 @@ in {
       programs.kitty = {
         enable = true;
 
-        theme = "Alabaster";
+        theme = "Ayu";
         font.name = "CaskaydiaCove Nerd Font Mono";
         settings = {
           window_padding_width = "1 5";
