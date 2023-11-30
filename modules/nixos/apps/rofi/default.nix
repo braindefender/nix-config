@@ -16,7 +16,14 @@ in {
     plusultra.system.home.extraOptions = {
       programs.rofi = {
         enable = true;
-        plugins = with pkgs; [ rofi-calc rofi-emoji ];
+        terminal = "kitty";
+        plugins = with pkgs; [ rofi-calc rofi-emoji rofi-pass ];
+        extraConfig = {
+          modi = "drun,emoji,ssh,calc";
+        };
+        pass = {
+          enable = true;
+        };
       };
     };
   };
