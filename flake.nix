@@ -46,6 +46,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.unstable.follows = "unstable";
     };
+
+    nix-apple-fonts = {
+      url = "github:braindefender/nix-apple-fonts";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.unstable.follows = "unstable";
+    };
+
   };
 
   outputs = inputs:
@@ -71,6 +78,7 @@
 
       overlays = with inputs; [
         nix-neovim.overlays.default
+        nix-apple-fonts.overlays.default
         nur.overlay
       ];
 
