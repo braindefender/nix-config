@@ -197,11 +197,11 @@
         "snowfall-lib": "snowfall-lib"
       },
       "locked": {
-        "lastModified": 1701339524,
-        "narHash": "sha256-HdLgNVyFwlRdcetyIJ52UbR/nPKKSnIxsmiC18/62a8=",
+        "lastModified": 1701346907,
+        "narHash": "sha256-im6uIGGgxfn5s1+RW7tlHMz6jaVmHjBf7Zs0k49/Jrw=",
         "owner": "braindefender",
         "repo": "nix-apple-fonts",
-        "rev": "c0c3040e1792f91d97acadeedd9e00005a1311f6",
+        "rev": "6f1a4b74cb889c7bc28d378715c79b4d0b35f5b8",
         "type": "github"
       },
       "original": {
@@ -252,11 +252,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1701333924,
-        "narHash": "sha256-w953OKiXjECq44lI+vA1YR0XW/Np/B4OrIIm/d/GntU=",
+        "lastModified": 1701346902,
+        "narHash": "sha256-Zsq9/orUnFbyzLR1/ii+LPq/ETmUtXq6dWS5ESfUi60=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "f0d92d2737c97b37804ca485d10148ee9abccf69",
+        "rev": "a5d600380e7e97b5bc833b1841c4c35add894dcb",
         "type": "github"
       },
       "original": {

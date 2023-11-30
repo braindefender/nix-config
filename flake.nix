@@ -50,7 +50,6 @@
     nix-apple-fonts = {
       url = "github:braindefender/nix-apple-fonts";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.unstable.follows = "unstable";
     };
 
   };
