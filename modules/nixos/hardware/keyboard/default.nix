@@ -14,7 +14,7 @@ in {
       tools.qmk = enabled;
       hardware.universal-layout = {
         enable = true;
-        ortho = true;
+        defaultLayout = "universalLayoutOrtho";
       };
     };
   };
