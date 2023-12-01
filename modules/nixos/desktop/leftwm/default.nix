@@ -5,7 +5,8 @@ with lib.plusultra;
 
 let
   cfg = config.plusultra.desktop.leftwm;
-  scr_xinitrc = builtins.readFile ./scr_xinitrc.sh;
+  script_xinitrc = builtins.readFile ./script_xinitrc.sh;
+  config_leftwm = builtins.readFile ./config_leftwm.ron;
 in
 {
   options.plusultra.desktop.leftwm = with types; {
@@ -23,7 +24,8 @@ in
     };
 
     plusultra.system.home.file = {
-      ".xinitrc".text = scr_xinitrc;
+      ".xinitrc".text = script_xinitrc;
+      ".config/leftwm/config.ron".text = config_leftwm;
     };
   };
 }

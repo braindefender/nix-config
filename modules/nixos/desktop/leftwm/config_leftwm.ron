@@ -1,0 +1,153 @@
+// For info about configuration please visit https://github.com/leftwm/leftwm/wiki
+
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+(
+    // Main Settings
+    modkey: "Mod4",
+    mousekey: "Mod4",
+    max_window_width: None,
+    state_path: None,
+    layout_mode: Tag,
+    insert_behavior: Bottom,
+    window_rules: [],
+    disable_current_tag_swap: false,
+    disable_tile_drag: false,
+    disable_window_snap: true,
+    focus_behaviour: Sloppy,
+    focus_new_windows: true,
+    single_window_border: true,
+    sloppy_mouse_follows_focus: true,
+    create_follows_cursor: None,
+    auto_derive_workspaces: true,
+    disable_cursor_reposition_on_resize: false,
+    // Tags & Workspaces
+    tags: [
+        "Inbox",
+        "Main",
+        "Work",
+        "Code",
+        "5",
+        "6",
+        "7",
+        "8",
+        "Config",
+    ],
+    workspaces: [],
+    scratchpad: [
+        (name: "Kitty", value: "kitty", x: 860, y: 390, width: 800, height: 600),
+    ],
+    // Keybindings
+    keybind: [
+        (command: Execute, value: "rofi -show drun", modifier: ["modkey"], key: "p"),
+        (command: Execute, value: "kitty", modifier: ["modkey"], key: "Return"),
+        (command: Execute, value: "loginctl kill-session $XDG_SESSION_ID", modifier: ["modkey", "Shift"], key: "x"),
+        (command: Execute, value: "slock", modifier: ["modkey", "Control"], key: "l"),
+        (command: Execute, value: "flameshot gui", modifier: [], key: "Print"),
+
+        (command: ToggleScratchPad, value: "Kitty", modifier: ["modkey", "Control"], key: "KP_End"),
+
+	    (command: ToggleFloating, modifier: ["modkey", "Control"], key: "f"),
+        (command: CloseWindow, value: "", modifier: ["modkey"], key: "q"),
+        (command: SoftReload, value: "", modifier: ["modkey", "Shift"], key: "r"),
+        (command: HardReload, value: "", modifier: ["modkey", "Shift"], key: "b"),
+
+        (command: MoveWindowUp, value: "", modifier: ["modkey", "Shift"], key: "Up"),
+        (command: MoveWindowDown, value: "", modifier: ["modkey", "Shift"], key: "Down"),
+        (command: FocusWindowUp, value: "", modifier: ["modkey"], key: "Up"),
+        (command: FocusWindowDown, value: "", modifier: ["modkey"], key: "Down"),
+
+        (command: SetLayout, value: "Monocle", modifier: ["modkey"], key: "f"),
+        (command: NextLayout, value: "", modifier: ["modkey", "Control"], key: "End"),
+        (command: PreviousLayout, value: "", modifier: ["modkey", "Control"], key: "Home"),
+
+        (command: SwapTags, value: "", modifier: ["modkey"], key: "w"),
+        (command: FocusPreviousTag, value: "", modifier: ["modkey", "Control"], key: "Left"),
+        (command: FocusNextTag, value: "", modifier: ["modkey", "Control"], key: "Right"),
+
+        (command: GotoTag, value: "1", modifier: ["modkey"], key: "KP_End"),
+        (command: GotoTag, value: "2", modifier: ["modkey"], key: "KP_Down"),
+        (command: GotoTag, value: "3", modifier: ["modkey"], key: "KP_Next"),
+        (command: GotoTag, value: "4", modifier: ["modkey"], key: "KP_Left"),
+        (command: GotoTag, value: "5", modifier: ["modkey"], key: "KP_Begin"),
+        (command: GotoTag, value: "6", modifier: ["modkey"], key: "KP_Right"),
+        (command: GotoTag, value: "7", modifier: ["modkey"], key: "KP_Home"),
+        (command: GotoTag, value: "8", modifier: ["modkey"], key: "KP_Up"),
+        (command: GotoTag, value: "9", modifier: ["modkey"], key: "KP_Prior"),
+
+        (command: MoveToTag, value: "1", modifier: ["modkey", "Shift"], key: "KP_End"),
+        (command: MoveToTag, value: "2", modifier: ["modkey", "Shift"], key: "KP_Down"),
+        (command: MoveToTag, value: "3", modifier: ["modkey", "Shift"], key: "KP_Next"),
+        (command: MoveToTag, value: "4", modifier: ["modkey", "Shift"], key: "KP_Left"),
+        (command: MoveToTag, value: "5", modifier: ["modkey", "Shift"], key: "KP_Begin"),
+        (command: MoveToTag, value: "6", modifier: ["modkey", "Shift"], key: "KP_Right"),
+        (command: MoveToTag, value: "7", modifier: ["modkey", "Shift"], key: "KP_Home"),
+        (command: MoveToTag, value: "8", modifier: ["modkey", "Shift"], key: "KP_Up"),
+        (command: MoveToTag, value: "9", modifier: ["modkey", "Shift"], key: "KP_Prior"),
+    ],
+    // Layouts & Definitions
+    layouts: [
+        "EvenHorizontal",
+        "Monocle",
+        "Grid",
+        "MainAndVertStack",
+        "MainAndHorizontalStack",
+        "RightMainAndVertStack",
+        "Dwindle",
+        "MainAndDeck",
+        "CenterMain",
+        "CenterMainBalanced",
+        "CenterMainFluid",
+    ],
+    layout_definitions: [
+        (
+            name: "EvenHorizontal",
+            flip: None,
+            rotate: North,
+            reserve: None,
+            columns: (
+                flip: None,
+                rotate: North,
+                main: None,
+                stack: (flip: None, rotate: North, split: Vertical),
+                second_stack: None
+            )
+        ),
+        (
+            name: "EvenVertical",
+            flip: None,
+            rotate: North,
+            reserve: None,
+            columns: (
+                flip: None,
+                rotate: North,
+                main: None,
+                stack: (flip: None, rotate: North, split: Horizontal),
+                second_stack: None
+            )
+        ),
+        (
+            name: "Monocle",
+            flip: None,
+            rotate: North,
+            reserve: None,
+            columns: (
+                flip: None,
+                rotate: North,
+                main: None,
+                stack: (flip: None, rotate: North, split: None),
+                second_stack: None
+            )
+        ),
+        (name: "Grid", flip: None, rotate: North, reserve: None, columns: (flip: None, rotate: North, main: None, stack: (flip: None, rotate: North, split: Grid), second_stack: None)),
+        (name: "MainAndVertStack", flip: None, rotate: North, reserve: None, columns: (flip: None, rotate: North, main: (count: 1, size: 0.5, flip: None, rotate: North, split: Vertical), stack: (flip: None, rotate: North, split: Horizontal), second_stack: None)),
+        (name: "MainAndHorizontalStack", flip: None, rotate: North, reserve: None, columns: (flip: None, rotate: North, main: (count: 1, size: 0.5, flip: None, rotate: North, split: Vertical), stack: (flip: None, rotate: North, split: Vertical), second_stack: None)),
+        (name: "RightMainAndVertStack", flip: None, rotate: North, reserve: None, columns: (flip: None, rotate: South, main: (count: 1, size: 0.5, flip: None, rotate: North, split: Vertical), stack: (flip: None, rotate: North, split: Horizontal), second_stack: None)),
+        (name: "Fibonacci", flip: None, rotate: North, reserve: None, columns: (flip: None, rotate: North, main: (count: 1, size: 0.5, flip: None, rotate: North, split: Vertical), stack: (flip: None, rotate: North, split: Fibonacci), second_stack: None)),
+        (name: "Dwindle", flip: None, rotate: North, reserve: None, columns: (flip: None, rotate: North, main: (count: 1, size: 0.5, flip: None, rotate: North, split: Vertical), stack: (flip: None, rotate: North, split: Dwindle), second_stack: None)),
+        (name: "MainAndDeck", flip: None, rotate: North, reserve: None, columns: (flip: None, rotate: North, main: (count: 1, size: 0.5, flip: None, rotate: North, split: None), stack: (flip: None, rotate: North, split: None), second_stack: None)),
+        (name: "CenterMain", flip: None, rotate: North, reserve: None, columns: (flip: None, rotate: North, main: (count: 1, size: 0.5, flip: None, rotate: North, split: Vertical), stack: (flip: None, rotate: North, split: None), second_stack: (flip: None, rotate: North, split: Horizontal))),
+        (name: "CenterMainBalanced", flip: None, rotate: North, reserve: None, columns: (flip: None, rotate: North, main: (count: 1, size: 0.5, flip: None, rotate: North, split: Vertical), stack: (flip: None, rotate: North, split: Dwindle), second_stack: (flip: None, rotate: North, split: Dwindle))),
+        (name: "CenterMainFluid", flip: None, rotate: North, reserve: Reserve, columns: (flip: None, rotate: North, main: (count: 1, size: 0.5, flip: None, rotate: North, split: Vertical), stack: (flip: None, rotate: North, split: None), second_stack: (flip: None, rotate: North, split: Horizontal))),
+    ],
+)
