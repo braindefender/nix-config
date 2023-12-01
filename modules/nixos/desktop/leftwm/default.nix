@@ -5,6 +5,7 @@ with lib.plusultra;
 
 let
   cfg = config.plusultra.desktop.leftwm;
+  scr_xinitrc = builtins.readFile ./scr_xinitrc.sh;
 in
 {
   options.plusultra.desktop.leftwm = with types; {
@@ -21,15 +22,8 @@ in
       package = pkgs.picom-next;
     };
 
-    plusultra.system.home.file.".xinitrc".text = ''
-      # Activate Universal Layout
-      setxkbmap -layout universalLayoutOrtho
-
-      # Launch LeftWM
-      exec dbus-launch leftwm
-
-      # Apply high refresh rate via XRandR
-      xrandr --output HDMI1 --mode 3440x1440 --rate 99.98
-    '';
+    plusultra.system.home.file = {
+      ".xinitrc".text = scr_xinitrc;
+    };
   };
 }

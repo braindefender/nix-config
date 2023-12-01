@@ -11,6 +11,9 @@ let
     nushell_config
     nushell_git_completions
   ];
+
+  home = config.users.users.${config.plusultra.user.name}.home;
+  flake_path = "${home}/.setup";
 in
 {
   options.plusultra.tools.nushell = with types; {
@@ -31,6 +34,10 @@ in
 
           extraConfig = ''
             def l [] { ls | sort-by type name -i }
+            def nrs [] {
+              git -C ${flake_path} add --all
+              sudo nixos-rebuild switch --flake "${flake_path}#terra"
+            }
           '';
         };
       };

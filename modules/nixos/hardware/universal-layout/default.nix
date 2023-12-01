@@ -34,6 +34,8 @@ in
 
   config = mkIf cfg.enable {
     services.xserver.extraLayouts = layouts;
+
+    environment.systemPackages = with pkgs; [ numlockx ];
     # services.udev.packages = [
     #   (pkgs.callPackage
     #     ./universal-layout-udev.nix
