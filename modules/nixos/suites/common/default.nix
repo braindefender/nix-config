@@ -79,6 +79,7 @@ in {
         bat = enabled;
         direnv = enabled;
         eza = enabled;
+        feh = enabled;
         fzf = enabled;
         git = enabled;
         lf = enabled;
