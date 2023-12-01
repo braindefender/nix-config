@@ -53,6 +53,7 @@ in {
         flameshot = enabled;
         gimp = enabled;
         gparted = enabled;
+        helix = enabled;
         kitty = enabled;
         krusader = enabled;
         moonlight = enabled;
@@ -80,7 +81,6 @@ in {
         eza = enabled;
         fzf = enabled;
         git = enabled;
-        helix = enabled;
         lf = enabled;
         neovim = enabled;
         pass = enabled;

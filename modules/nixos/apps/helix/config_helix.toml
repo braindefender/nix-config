@@ -1,0 +1,34 @@
+theme = "ayu_mirage"
+
+[editor]
+line-number = "relative"
+cursorline = true
+true-color = true
+
+[editor.cursor-shape]
+insert = "bar"
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+
+j = "move_char_left"
+k = "move_line_down"
+l = "move_line_up"
+"~" = "move_char_right"
+h = "switch_case"
+
+z = { k = "scroll_down", l = "scroll_up" }
+g = { j = "goto_line_start", "~" = "goto_line_end" }
+
+[keys.insert]
+k = { l = "normal_mode" }
+
+[keys.select]
+j = "extend_char_left"
+k = "extend_line_down"
+l = "extend_line_up"
+"~" = "extend_char_right"
+h = "switch_case"
+
+z = { k = "scroll_down", l = "scroll_up" }
+g = { j = "goto_line_start", "~" = "goto_line_end" }

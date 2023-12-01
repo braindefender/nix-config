@@ -9,7 +9,6 @@ let
     q = "exit";
     c = "clear";
     v = "nvim";
-    hx = "helix";
     dust = "du-dust";
 
     sudo = mkIf config.plusultra.system.doas.enable "doas";
