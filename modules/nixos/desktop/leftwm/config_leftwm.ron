@@ -32,6 +32,7 @@
         "7",
         "8",
         "Config",
+        "Virt",
     ],
     workspaces: [],
     scratchpad: [
@@ -74,6 +75,7 @@
         (command: GotoTag, value: "7", modifier: ["modkey"], key: "KP_Home"),
         (command: GotoTag, value: "8", modifier: ["modkey"], key: "KP_Up"),
         (command: GotoTag, value: "9", modifier: ["modkey"], key: "KP_Prior"),
+        (command: GotoTag, value: "10", modifier: ["modkey"], key: "KP_Insert"),
 
         (command: MoveToTag, value: "1", modifier: ["modkey", "Shift"], key: "KP_End"),
         (command: MoveToTag, value: "2", modifier: ["modkey", "Shift"], key: "KP_Down"),
@@ -84,6 +86,7 @@
         (command: MoveToTag, value: "7", modifier: ["modkey", "Shift"], key: "KP_Home"),
         (command: MoveToTag, value: "8", modifier: ["modkey", "Shift"], key: "KP_Up"),
         (command: MoveToTag, value: "9", modifier: ["modkey", "Shift"], key: "KP_Prior"),
+        (command: MoveToTag, value: "10", modifier: ["modkey", "Shift"], key: "KP_Insert"),
     ],
     // Layouts & Definitions
     layouts: [
