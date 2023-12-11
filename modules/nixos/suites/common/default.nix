@@ -33,8 +33,10 @@ in {
         gtk = enabled;
 
         ### X Window System
+        picom = enabled;
         startx = enabled;
-        leftwm = enabled;
+        # leftwm = enabled;
+        hlwm = enabled;
         # i3wm = enabled;
 
         ### Wayland Shit
@@ -63,6 +65,7 @@ in {
         qbittorrent = enabled;
         rofi = enabled;
         telegram = enabled;
+        vlc = enabled;
         vscode = enabled;
         # watershot = enabled;
       };

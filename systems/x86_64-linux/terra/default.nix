@@ -20,6 +20,9 @@ with lib.plusultra;
       modeling = enabled;
       work = enabled;
     };
+    hardware = {
+      video = enabled;
+    };
     system = {
       boot.grub = enabled;
     };

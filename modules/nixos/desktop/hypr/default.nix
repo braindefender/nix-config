@@ -52,64 +52,64 @@ let
   '';
 
   hyprlandConf = ''
-        general {
-          border_size = 2
-          gaps_in = 4
-          gaps_out = 8
-          layout = master
-        }
+            general {
+              border_size = 2
+              gaps_in = 4
+              gaps_out = 8
+              layout = master
+            }
 
-        decoration {
-          rounding = 8
-          fullscreen_opacity = 1
-          inactive_opacity = 0.9
-          active_opacity = 1
-          drop_shadow = false
-          blur {
-            enabled = true
-    	      new_optimizations = true
-          }
-        }
+            decoration {
+              rounding = 8
+              fullscreen_opacity = 1
+              inactive_opacity = 0.9
+              active_opacity = 1
+              drop_shadow = false
+              blur {
+                enabled = true
+        	      new_optimizations = true
+              }
+            }
 
-        animations {
-          enabled = true
+            animations {
+              enabled = true
 
-          bezier = myBezier, 0.05, 0.9, 0.1, 1.05
+              bezier = myBezier, 0.05, 0.9, 0.1, 1.05
 
-          animation = windows, 1, 7, myBezier
-          animation = windowsOut, 1, 7, default, popin 80%
-          animation = border, 1, 10, default
-          animation = borderangle, 1, 8, default
-          animation = fade, 1, 7, default
-          animation = workspaces, 1, 6, default
-        }
+              animation = windows, 1, 7, myBezier
+              animation = windowsOut, 1, 7, default, popin 80%
+              animation = border, 1, 10, default
+              animation = borderangle, 1, 8, default
+              animation = fade, 1, 7, default
+              animation = workspaces, 1, 6, default
+            }
 
-        input {
-          sensitivity = 0
-          follow_mouse = 2
-          repeat_delay = 250
-          accel_profile = flat
-          numlock_by_default = 1
-          kb_layout = universalLayoutOrtho
-          kb_file = ${pkgs.xkeyboard_config.outPath}/share/X11/xkb/symbols/universalLayoutOrtho
-        }
+            input {
+              sensitivity = 0
+              follow_mouse = 2
+              repeat_delay = 250
+              accel_profile = flat
+              numlock_by_default = 1
+              kb_layout = universalLayoutOrtho
+              kb_file = ${pkgs.xkeyboard_config.outPath}/share/X11/xkb/symbols/universalLayoutOrtho
+            }
 
-        dwindle {
-          pseudotile = true
-          preserve_split = true
-        }
+            dwindle {
+              pseudotile = true
+              preserve_split = true
+            }
 
-        master {
-          new_is_master = false
-          mfact = 0.66
-        }
+            master {
+              new_is_master = false
+              mfact = 0.66
+            }
 
-        monitor=,3440x1440@120,0x0,1
-	env=WLR_DRM_DEVICES,/dev/dri/card0
+            monitor=,3440x1440@120,0x0,1
+    	env=WLR_DRM_DEVICES,/dev/dri/card0
 
-        ${execute}
-        ${bindings}
-        ${windowRules}
+            ${execute}
+            ${bindings}
+            ${windowRules}
   '';
 
 in
@@ -161,8 +161,6 @@ in
     };
 
     programs.waybar.enable = true;
-
-    hardware.opengl.enable = true;
 
     xdg.portal = {
       enable = true;

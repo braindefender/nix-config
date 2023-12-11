@@ -14,14 +14,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      leftwm
-      picom-next
-    ];
-
-    services.picom = {
-      package = pkgs.picom-next;
-    };
+    environment.systemPackages = with pkgs; [ leftwm ];
 
     plusultra.system.home.file = {
       ".xinitrc".text = script_xinitrc;

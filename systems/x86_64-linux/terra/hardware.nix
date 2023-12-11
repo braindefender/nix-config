@@ -40,8 +40,6 @@ with lib.plusultra;
   # Turned off cause VFIO Passthrough
   # services.xserver.videoDrivers = [ "nvidia" ];
 
-  services.xserver.videoDrivers = [ "intel" ];
-
   # 64-Bit system target
   nixpkgs.hostPlatform = mkDefault "x86_64-linux";
 }
