@@ -6,6 +6,7 @@ with lib.plusultra;
 let
   cfg = config.plusultra.desktop.hlwm;
   script_xinitrc = builtins.readFile ./script_xinitrc.sh;
+  script_follow_window = ./script_follow_window.sh;
 
   mod = "Mod4"; # Mod1 is Alt, Mod4 is Win
 in
@@ -15,6 +16,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [ xdotool ];
+
     plusultra.system.home.file = {
       ".xinitrc".text = script_xinitrc;
     };
@@ -41,6 +44,7 @@ in
           "${mod}-Return" = "spawn ${pkgs.kitty}/bin/kitty";
           "${mod}-space" = "spawn ${pkgs.rofi}/bin/rofi -show drun";
 
+          "${mod}-y" = "remove";
           "${mod}-u" = "split bottom";
           "${mod}-i" = "jumpto urgent";
           "${mod}-o" = "split right";
@@ -49,6 +53,9 @@ in
           "${mod}-Shift-r" = "reload";
           "${mod}-Shift-q" = "close";
           "${mod}-Shift-x" = "quit";
+
+          "Mod1-Tab" = "chain , cycle_all +1 , spawn ${script_follow_window}";
+          "Mod1-Shift-Tab" = "chain , cycle_all -1 , spawn ${script_follow_window}";
 
           "${mod}-Up" = "focus up";
           "${mod}-Down" = "focus down";
@@ -59,6 +66,9 @@ in
           "${mod}-Shift-Down" = "shift down";
           "${mod}-Shift-Left" = "shift left";
           "${mod}-Shift-Right" = "shift right";
+
+          "${mod}-Control-Shift-Left" = "move_index -1";
+          "${mod}-Control-Shift-Right" = "move_index +1";
 
           "${mod}-Control-Left" = "use_index -1 --skip-visible";
           "${mod}-Control-Right" = "use_index +1 --skip-visible";
