@@ -7,3 +7,5 @@ result
 # Running `nixos-rebuild build-vm` and starting the VM adds a file for VM storage drive
 *.qcow2
 
+# Find a way to move these to a secrets
+modules/nixos/suites/work/default.nix
