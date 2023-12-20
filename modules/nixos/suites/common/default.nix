@@ -20,7 +20,6 @@ in {
       };
 
       system = {
-        # doas = enabled; # too much pain
         fonts = enabled;
         gpg = enabled;
         keyring = enabled;
@@ -74,7 +73,7 @@ in {
         common = enabled;
         aliases = enabled;
 
-        nushell = {
+        zsh = {
           enable = true;
           default = true;
         };

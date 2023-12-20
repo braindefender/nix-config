@@ -24,16 +24,6 @@ in {
             "--no-user"
           ];
         };
-        nushell = {
-          shellAliases = with pkgs; {
-            # ls = "exa"; # turned of because of nushell great ls command
-            ll = "eza -l";
-            la = "eza -a";
-            lt = "eza --tree";
-            lla = "eza -la";
-          };
-        };
-
       };
     };
     environment.systemPackages = with pkgs; [ eza ];

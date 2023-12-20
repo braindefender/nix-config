@@ -24,7 +24,6 @@ in
         bash.shellAliases = aliases;
         fish.shellAliases = aliases;
         zsh.shellAliases = aliases;
-        nushell.shellAliases = aliases;
       };
     };
     environment.systemPackages = with pkgs; [ bat ];

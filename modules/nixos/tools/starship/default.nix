@@ -11,7 +11,6 @@ let
     enableBashIntegration = true;
     enableFishIntegration = true;
     enableZshIntegration = true;
-    enableNushellIntegration = true;
 
     settings = {
       format = "$all$fill$cmd_duration$line_break$shell$character";
@@ -66,7 +65,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    # user-home-wide
     plusultra.system.home.extraOptions = {
       programs.starship = starshipConfig;
     };

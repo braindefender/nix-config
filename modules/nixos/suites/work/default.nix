@@ -17,9 +17,7 @@ in {
       };
     };
 
-    # networking.extraHosts = ''
-    #   172.16.255.255  hrdt.local
-    # '';
+    networking.firewall.enable = false;
 
     environment.systemPackages = with pkgs; [ dbeaver ];
   };

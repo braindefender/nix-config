@@ -18,7 +18,6 @@ in {
           enableBashIntegration = true;
           enableFishIntegration = true;
           enableZshIntegration = true;
-          enableNushellIntegration = true;
           package = pkgs.plusultra.zoxide;
         };
       };

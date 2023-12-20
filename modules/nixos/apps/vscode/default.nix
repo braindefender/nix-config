@@ -147,11 +147,11 @@ in
           "terminal.integrated.scrollback" = 10000;
           "terminal.integrated.smoothScrolling" = true;
 
-          # Nushell Integration
-          "terminal.integrated.defaultProfile.linux" = "nushell";
+          # ZSH Integration
+          "terminal.integrated.defaultProfile.linux" = "zsh";
           "terminal.integrated.profiles.linux" = {
-            "nushell" = {
-              path = "${pkgs.nushell}/bin/nu";
+            "zsh" = {
+              path = "${pkgs.zsh}/bin/zsh";
             };
           };
 

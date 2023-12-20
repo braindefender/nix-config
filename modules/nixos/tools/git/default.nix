@@ -9,9 +9,9 @@ let
 in
 {
   options.plusultra.tools.git = with types; {
-    enable = mkBoolOpt false "Whether or not to install and configure git.";
-    userName = mkOpt str user.fullName "The name to configure git with.";
-    userEmail = mkOpt str user.email "The email to configure git with.";
+    enable = mkBoolOpt false "Enable Git? No, really?";
+    userName = mkOpt str user.fullName "git config user.name";
+    userEmail = mkOpt str user.email "git config user.email";
   };
 
   config = mkIf cfg.enable {
@@ -20,14 +20,15 @@ in
     plusultra.system.home.extraOptions = {
       programs.git = {
         enable = true;
+        package = pkgs.gitFull;
         inherit (cfg) userName userEmail;
         extraConfig = {
           init = { defaultBranch = "master"; };
           pull = { rebase = true; };
           push = { autoSetupRemote = true; };
+          credential.helper = "libsecret";
         };
       };
     };
   };
 }
-

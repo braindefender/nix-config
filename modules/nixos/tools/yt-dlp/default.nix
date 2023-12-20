@@ -3,8 +3,15 @@
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.tools.yt-dlp;
+let
+  cfg = config.plusultra.tools.yt-dlp;
 
+  aliases = {
+    ytv = "yt-dlp --format \"bv*+ba/b\"";
+    yta = ''
+      yt-dlp -x --continue --add-metadata --embed-thumbnail --audio-format mp3 --audio-quality 0 --metadata-from-title="%(artist)s - %(title)s" --prefer-ffmpeg -o "%(title)s.%(ext)s"
+    '';
+  };
 in
 {
   options.plusultra.tools.yt-dlp = with types; {
@@ -22,12 +29,10 @@ in
             embed-thumbnail = true;
           };
         };
-        nushell.shellAliases = {
-          ytv = "yt-dlp --format \"bv*+ba/b\"";
-          yta = ''
-            yt-dlp -x --continue --add-metadata --embed-thumbnail --audio-format mp3 --audio-quality 0 --metadata-from-title="%(artist)s - %(title)s" --prefer-ffmpeg -o "%(title)s.%(ext)s"
-          '';
-        };
+
+        bash.shellAliases = aliases;
+        fish.shellAliases = aliases;
+        zsh.shellAliases = aliases;
       };
     };
   };

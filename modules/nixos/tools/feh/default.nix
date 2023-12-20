@@ -9,7 +9,7 @@ let
 in
 {
   options.plusultra.tools.feh = with types; {
-    enable = mkBoolOpt false "Whether or not to install and configure feh.";
+    enable = mkBoolOpt false "Enable FEH Image Viewer?";
   };
 
   config = mkIf cfg.enable {

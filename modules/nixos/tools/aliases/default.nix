@@ -5,23 +5,30 @@ with lib.plusultra;
 
 let
   cfg = config.plusultra.tools.aliases;
+
+  home = config.users.users.${config.plusultra.user.name}.home;
+  flake_path = "${home}/.setup";
+
+  nrs = pkgs.writeShellScriptBin "nrs" ''
+    git -C ${flake_path} add --all
+    sudo nixos-rebuild switch --flake "${flake_path}#terra"
+  '';
+
   aliases = {
     q = "exit";
     c = "clear";
     v = "nvim";
     dust = "du-dust";
 
-    sudo = mkIf config.plusultra.system.doas.enable "doas";
-
     # Git
     g = "git";
     push = "git push";
     pull = "git pull";
     fetch = "git fetch";
-    commit = "git add . and git commit -m";
+    commit = "git add .; git commit -m";
 
     # NixOS
-    cleanup = "doas nix-collect-garbage --delete-older-than 7d";
+    cleanup = "sudo nix-collect-garbage --delete-older-than 7d";
     bloat = "nix path-info -Sh /run/current-system";
   };
 in
@@ -31,12 +38,15 @@ in
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      nrs
+    ];
+
     plusultra.system.home.extraOptions = {
       programs = {
         bash.shellAliases = aliases;
         fish.shellAliases = aliases;
         zsh.shellAliases = aliases;
-        nushell.shellAliases = aliases;
       };
     };
   };

@@ -120,8 +120,8 @@ in
 
   config = mkIf cfg.enable {
     plusultra.system.home.extraOptions = {
-      programs.nushell.extraLogin = ''
-        if ((not 'DISPLAY' in $env) and (tty) == "/dev/tty1") {
+      programs.zsh.loginExtra = ''
+        if ((not 'DISPLAY' in $env); (tty) == "/dev/tty1") {
           Hyprland
         }
       '';

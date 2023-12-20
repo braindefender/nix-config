@@ -24,7 +24,6 @@ in {
       programs.zsh.shellAliases.vimdiff = "nvim -d";
       programs.bash.shellAliases.vimdiff = "nvim -d";
       programs.fish.shellAliases.vimdiff = "nvim -d";
-      programs.nushell.shellAliases.vimdiff = "nvim -d";
     };
   };
 }

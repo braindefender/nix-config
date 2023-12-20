@@ -22,6 +22,11 @@
       fsType = "zfs";
     };
 
+    "/virt/ubuntu" = {
+      device = "rpool/virt/ubuntu";
+      fsType = "zfs";
+    };
+
     "/nix" = {
       device = "rpool/nix";
       fsType = "zfs";
