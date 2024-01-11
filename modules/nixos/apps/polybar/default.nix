@@ -12,5 +12,10 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ polybar ];
+    # plusultra.system.home.extraOptions = {
+    #   services.polybar = {
+    #     enable = true;
+    #   };
+    # };
   };
 }
