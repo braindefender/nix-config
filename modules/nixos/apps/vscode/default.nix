@@ -30,6 +30,8 @@ in
       '';
     };
 
+    services.vscode-server.enable = true;
+
     plusultra.system.home.extraOptions = {
       home.sessionVariables = wayland-fix;
 
