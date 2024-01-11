@@ -8,8 +8,13 @@ true-color = true
 [editor.cursor-shape]
 insert = "bar"
 
+[editor.indent-guides]
+render = true
+
 [keys.normal]
 esc = ["collapse_selection", "keep_primary_selection"]
+
+"$" = ["ensure_selections_forward", "extend_to_line_end"]
 
 j = "move_char_left"
 k = "move_line_down"
@@ -19,9 +24,6 @@ h = "switch_case"
 
 z = { k = "scroll_down", l = "scroll_up" }
 g = { j = "goto_line_start", "~" = "goto_line_end" }
-
-[keys.insert]
-k = { l = "normal_mode" }
 
 [keys.select]
 j = "extend_char_left"
