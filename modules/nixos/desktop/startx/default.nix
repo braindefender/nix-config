@@ -17,9 +17,9 @@ in
 
     plusultra.system.home.extraOptions = {
       programs.zsh.loginExtra = ''
-        if ((not 'DISPLAY' in $env) && (tty) == "/dev/tty1") {
+        if [ -z "''${DISPLAY}" ] && [ $(tty) = "/dev/tty1" ]; then
           startx
-        }
+        fi
       '';
     };
   };
