@@ -18,18 +18,23 @@ let
     q = "exit";
     c = "clear";
     v = "nvim";
-    dust = "du-dust";
+    dust = "${pkgs.du-dust}/bin/dust -X .git -X node_modules";
+    grep = "${pkgs.gnugrep}/bin/grep --color='always'";
 
     # Git
     g = "git";
+    gs = "git status";
     push = "git push";
     pull = "git pull";
     fetch = "git fetch";
-    commit = "git add .; git commit -m";
+    commit = "git commit -a -m";
 
     # NixOS
     cleanup = "sudo nix-collect-garbage --delete-older-than 7d";
     bloat = "nix path-info -Sh /run/current-system";
+
+    # ZFS
+    zlist = "sudo zfs list | grep --invert-match 'rpool/root/'";
   };
 in
 {
@@ -47,6 +52,7 @@ in
         bash.shellAliases = aliases;
         fish.shellAliases = aliases;
         zsh.shellAliases = aliases;
+        nushell.shellAliases = aliases;
       };
     };
   };
