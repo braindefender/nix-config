@@ -26,7 +26,7 @@ in
       zfs.enableUnstable = true;
       kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
       kernelModules = modules;
-      blacklistedKernelModules = [ "nvidia" "nouveau" ];
+      blacklistedKernelModules = [ "nvidia" "nouveau" "xpad" ];
 
       kernelParams = [ "intel_iommu=on" "preempt=voluntary" ];
       extraModprobeConfig = "options vfio-pci ids=" + lib.concatStringsSep "," gpuIds;
@@ -47,6 +47,5 @@ in
     environment.systemPackages = with pkgs; [ virt-manager ];
 
     plusultra.user.extraGroups = [ "libvirtd" ];
-    programs.hyprland.enableNvidiaPatches = false;
   };
 }
