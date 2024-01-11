@@ -15,8 +15,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ git ];
-
     plusultra.system.home.extraOptions = {
       programs.git = {
         enable = true;
