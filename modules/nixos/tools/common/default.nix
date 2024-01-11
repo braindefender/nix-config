@@ -28,6 +28,7 @@ in {
       clac # stack-based calculator
       imagemagick # raster and vector image editor and converter
       ffmpeg-full # bunch of codecs and converter utilities
+      xclip
 
       ### Shell Apps
       du-dust # A more intuitive version of du written in Rust
