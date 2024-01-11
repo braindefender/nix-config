@@ -17,7 +17,15 @@ in
   config = mkIf cfg.enable {
     plusultra.user.extraGroups = [ "networkmanager" ];
 
-    environment.systemPackages = with pkgs; [ networkmanager-l2tp ];
+    environment.systemPackages = with pkgs; [
+      networkmanager
+      networkmanager-l2tp
+      networkmanager-openvpn
+      networkmanager_strongswan
+      networkmanagerapplet
+      gnome.networkmanager-l2tp
+      gnome.networkmanager-openvpn
+    ];
 
     # services.xl3tpd.enable = true;
 
@@ -37,6 +45,10 @@ in
       hosts = {
         ${localhost} = [ "local.test" ] ++ (cfg.hosts.${localhost} or [ ]);
       } // cfg.hosts;
+    };
+
+    plusultra.system.home.extraOptions = {
+      services.network-manager-applet.enable = true;
     };
 
     systemd.services.NetworkManager-wait-online.enable = false;
