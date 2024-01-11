@@ -21,7 +21,6 @@ in {
           extraOptions = [
             "--group-directories-first"
             "--time-style=long-iso"
-            "--no-user"
           ];
         };
       };
