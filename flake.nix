@@ -38,6 +38,11 @@
       flake = false; # repo is not a flake
     };
 
+    # VSCode Remote SSH Server
+    vscode-server = {
+      url = "github:nix-community/nixos-vscode-server";
+    };
+
     ### My Own Packages
 
     # neovim with bundled config
@@ -73,6 +78,9 @@
     lib.mkFlake {
       channels-config = {
         allowUnfree = true;
+        permittedInsecurePackages = [
+          "electron-25.9.0"
+        ];
       };
 
       overlays = with inputs; [
@@ -83,6 +91,7 @@
 
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager
+        vscode-server.nixosModules.default
         nur.nixosModules.nur
       ];
     };

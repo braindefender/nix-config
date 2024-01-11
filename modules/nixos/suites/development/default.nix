@@ -21,6 +21,7 @@ in {
         setSocketVariable = true;
       };
     };
+
     plusultra.user.extraGroups = [ "docker" ];
     # plusultra.hardware.networking.hosts = { };
 
@@ -42,6 +43,8 @@ in {
       # Web
       nodejs
       bun
+      emmet-language-server
+      turso-cli
     ] ++ (with pkgs.nodePackages_latest; [
       prettier
       typescript-language-server
