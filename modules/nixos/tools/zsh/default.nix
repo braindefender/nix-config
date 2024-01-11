@@ -30,6 +30,8 @@ in
           syntaxHighlighting.enable = true;
 
           initExtra = ''
+            export KEYTIMEOUT=1
+            
             # Use vim bindings
             set -o vi
 

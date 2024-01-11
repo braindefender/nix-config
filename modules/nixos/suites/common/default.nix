@@ -78,6 +78,8 @@ in {
           default = true;
         };
 
+        tmux = enabled;
+
         bat = enabled;
         direnv = enabled;
         eza = enabled;
@@ -95,6 +97,7 @@ in {
 
       services = {
         openssh = enabled;
+        syncthing = enabled;
       };
     };
   };
