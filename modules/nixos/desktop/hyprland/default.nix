@@ -21,6 +21,14 @@ in
   };
 
   config = mkIf cfg.enable {
+    plusultra.system.home.extraOptions = {
+      programs.zsh.loginExtra = ''
+        if [ -z "''${DISPLAY}" ] && [ $(tty) = "/dev/tty1" ]; then
+          Hyprland
+        fi
+      '';
+    };
+
     environment = {
       systemPackages = with pkgs; [ hyprland watershot slurp grim wl-clipboard ];
       sessionVariables = {

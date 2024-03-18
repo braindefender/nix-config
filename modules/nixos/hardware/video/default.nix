@@ -13,6 +13,7 @@ in
 
   config = mkIf cfg.enable {
     boot.initrd.kernelModules = [ "i915" ];
+    boot.kernelParams = [ "i915.enable_guc=2" "i915.force_probe=a780" "i915.modeset=1" ];
 
     services.xserver.videoDrivers = [ "intel" ];
 
@@ -34,6 +35,7 @@ in
       linux-firmware
       libva-utils
       glibc
+      mesa
     ];
   };
 }
