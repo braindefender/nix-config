@@ -48,7 +48,7 @@ let
       time = {
         disabled = true;
         time_format = "%T";
-        foromat = "[$time]($style)";
+        format = "[$time]($style)";
         style = "8";
       };
 

@@ -8,9 +8,6 @@
     # NixPkgs Unstable
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # NixPkgs Stable
-    stable.url = "github:nixos/nixpkgs/release-23.05";
-
     # Snowfall Lib
     snowfall-lib = {
       url = "github:snowfallorg/lib";
@@ -43,17 +40,15 @@
       url = "github:nix-community/nixos-vscode-server";
     };
 
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
+
     ### My Own Packages
 
     # neovim with bundled config
     nix-neovim = {
       url = "github:braindefender/nix-neovim";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.unstable.follows = "unstable";
-    };
-
-    nix-apple-fonts = {
-      url = "github:braindefender/nix-apple-fonts";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -84,14 +79,15 @@
       };
 
       overlays = with inputs; [
-        nix-neovim.overlays.default
-        nix-apple-fonts.overlays.default
+        # nix-neovim.overlays.default
+        hyprland.overlays.default
         nur.overlay
       ];
 
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager
         vscode-server.nixosModules.default
+        hyprland.nixosModules.default
         nur.nixosModules.nur
       ];
     };

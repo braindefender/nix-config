@@ -12,7 +12,8 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      plusultra.neovim
+      # plusultra.neovim
+      neovim
     ];
     environment.variables = {
       EDITOR = "nvim";

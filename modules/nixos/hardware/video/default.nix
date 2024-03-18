@@ -13,13 +13,8 @@ in
 
   config = mkIf cfg.enable {
     boot.initrd.kernelModules = [ "i915" ];
-    boot.kernelParams = [ "i915.enable_guc=3" "i915.force_probe=a780" "i915.modeset=1" ];
 
     services.xserver.videoDrivers = [ "intel" ];
-    services.xserver.deviceSection = ''
-      Option "DRI" "iris"
-      Option "TearFree" "true"
-    '';
 
     hardware = {
       cpu.intel.updateMicrocode = true;
@@ -36,6 +31,7 @@ in
     };
 
     environment.systemPackages = with pkgs; [
+      linux-firmware
       libva-utils
       glibc
     ];

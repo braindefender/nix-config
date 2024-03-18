@@ -21,7 +21,6 @@ in {
         noto-fonts-emoji
         cantarell-fonts # GNOME 3 default font
         font-awesome
-        plusultra.apple-fonts
         (nerdfonts.override {
           fonts = [
             "CascadiaCode" # Windows Terminal default font

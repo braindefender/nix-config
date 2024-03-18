@@ -7,7 +7,6 @@ let
   cfg = config.plusultra.apps.vscode;
   font = "CaskaydiaCove Nerd Font Mono";
   prettier = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
-  wayland-fix = { NIXOS_OZONE_WL = "1"; };
 in
 {
   options.plusultra.apps.vscode = with types; {
@@ -15,8 +14,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ vscode nixpkgs-fmt ];
-    environment.sessionVariables = wayland-fix;
+    environment.systemPackages = with pkgs; [ vscode-with-extensions nixpkgs-fmt ];
 
     plusultra.system.home.file = {
       ".vimrc".text = ''
@@ -33,10 +31,10 @@ in
     services.vscode-server.enable = true;
 
     plusultra.system.home.extraOptions = {
-      home.sessionVariables = wayland-fix;
 
       programs.vscode = {
         enable = true;
+
         mutableExtensionsDir = true;
 
         extensions = with pkgs.vscode-extensions; [

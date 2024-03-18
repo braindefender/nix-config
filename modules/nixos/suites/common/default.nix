@@ -32,14 +32,14 @@ in {
         gtk = enabled;
 
         ### X Window System
-        picom = enabled;
-        startx = enabled;
+        # picom = enabled;
+        # startx = enabled;
         # leftwm = enabled;
-        hlwm = enabled;
+        # hlwm = enabled;
         # i3wm = enabled;
 
         ### Wayland Shit
-        # hypr = enabled;
+        hyprland = enabled;
         # gnome = enabled;
         # sway = enabled;
       };
