@@ -12,7 +12,12 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ nix-index nixpkgs-fmt nil ];
+    environment.systemPackages = with pkgs; [
+      nix-tree
+      nix-index
+      nixpkgs-fmt
+      nil
+    ];
 
     environment.variables = {
       NIXPKGS_ALLOW_UNFREE = "1";
