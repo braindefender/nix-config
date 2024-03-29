@@ -45,8 +45,8 @@ in {
       };
 
       apps = {
-        barrier = enabled;
-        chromium = enabled;
+        # barrier = enabled;
+        # chromium = enabled;
         discord = enabled;
         dunst = enabled;
         figma = enabled;
@@ -56,17 +56,18 @@ in {
         gparted = enabled;
         helix = enabled;
         kitty = enabled;
-        krusader = enabled;
-        moonlight = enabled;
-        obs-studio = enabled;
+        # krusader = enabled;
+        # moonlight = enabled;
+        # obs-studio = enabled;
         obsidian = enabled;
         polybar = enabled;
         qbittorrent = enabled;
         rofi = enabled;
         telegram = enabled;
+        vivaldi = enabled;
         vlc = enabled;
         vscode = enabled;
-        # watershot = enabled;
+        watershot = enabled;
       };
 
       tools = {
@@ -78,26 +79,31 @@ in {
           default = true;
         };
 
-        tmux = enabled;
-
         bat = enabled;
+        broot = enabled;
         direnv = enabled;
         eza = enabled;
         feh = enabled;
         fzf = enabled;
         git = enabled;
+        lazygit = enabled;
         lf = enabled;
+        joshuto = enabled;
         neovim = enabled;
         pass = enabled;
         starship = enabled;
         tealdeer = enabled;
         yt-dlp = enabled;
+        zellij = enabled;
         zoxide = enabled;
       };
 
       services = {
+        # acme = enabled;
+        ollama = enabled;
         openssh = enabled;
         syncthing = enabled;
+        vaultwarden = enabled;
       };
     };
   };
