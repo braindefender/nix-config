@@ -15,6 +15,7 @@ in {
       vim # Best editor ever
       # File Management
       unzip
+      trashy
 
       ### Shell Utils
       # TODO: make settings for shell
