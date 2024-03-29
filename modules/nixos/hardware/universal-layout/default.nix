@@ -33,7 +33,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.xserver.extraLayouts = layouts;
+    services.xserver.xkb.extraLayouts = layouts;
 
     environment.systemPackages = with pkgs; [ numlockx ];
     # services.udev.packages = [
