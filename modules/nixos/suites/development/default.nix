@@ -39,7 +39,6 @@ in {
       go
       lldb
       docker-compose
-      sapling
       # Web
       nodejs
       bun
