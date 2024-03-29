@@ -12,6 +12,7 @@ in
     enable = mkBoolOpt false "Enable Network Manager?";
     hosts = mkOpt attrs { }
       (mdDoc "An attribute set to merge with `networking.hosts`");
+    dns = mkOpt (listOf str) [ ] "Custom DNS Server list";
   };
 
   config = mkIf cfg.enable {
@@ -27,25 +28,30 @@ in
       gnome.networkmanager-openvpn
     ];
 
-    # services.xl3tpd.enable = true;
-
     services.strongswan = {
       enable = true;
       secrets = [ "ipsec.d/ipsec.nm-l2tp.secrets" ];
     };
 
     networking = {
+      domain = "braindefender.ru";
+
       networkmanager = {
         enable = true;
         enableStrongSwan = true;
       };
 
-      firewall.checkReversePath = "loose";
+      firewall = {
+        allowedTCPPorts = [ 80 443 ];
+        checkReversePath = "loose";
+      };
 
-      hosts = {
-        ${localhost} = [ "local.test" ] ++ (cfg.hosts.${localhost} or [ ]);
-      } // cfg.hosts;
+      hosts = { localhost = [ localhost ]; } // cfg.hosts;
+
+      nameservers = [ "1.1.1.1" "8.8.8.8" ] ++ (cfg.dns or [ ]);
     };
+
+    plusultra.hardware.networking.dns = [ "ns1.reg.ru" "ns2.reg.ru" ];
 
     plusultra.system.home.extraOptions = {
       services.network-manager-applet.enable = true;
