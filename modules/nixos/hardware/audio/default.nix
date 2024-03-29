@@ -8,10 +8,6 @@ let cfg = config.plusultra.hardware.audio;
 in {
   options.plusultra.hardware.audio = with types; {
     enable = mkBoolOpt false "Enable audio configuration?";
-    extraPackages = mkOpt (listOf package) [
-      pkgs.qjackctl
-      pkgs.easyeffects
-    ] "Additional packages to install.";
   };
 
   config = mkIf cfg.enable {
@@ -31,7 +27,7 @@ in {
     environment.systemPackages = with pkgs; [
       pulsemixer
       pavucontrol
-    ] ++ cfg.extraPackages;
+    ];
 
     plusultra.user.extraGroups = [ "audio" ];
   };
