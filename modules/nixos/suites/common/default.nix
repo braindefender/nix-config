@@ -87,7 +87,6 @@ in {
         fzf = enabled;
         git = enabled;
         lazygit = enabled;
-        lf = enabled;
         joshuto = enabled;
         neovim = enabled;
         pass = enabled;
