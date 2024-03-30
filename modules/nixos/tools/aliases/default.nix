@@ -29,12 +29,16 @@ let
     fetch = "git fetch";
     commit = "git commit -a -m";
 
+    lg = "lazygit";
+    lf = "joshuto";
+
     # NixOS
     cleanup = "sudo nix-collect-garbage --delete-older-than 7d";
     bloat = "nix path-info -Sh /run/current-system";
 
     # ZFS
     zlist = "sudo zfs list | grep --invert-match 'rpool/root/'";
+    zsnap = "sudo zfs list -t snapshot | grep --invert-match 'rpool/root/'";
   };
 in
 {
@@ -43,9 +47,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      nrs
-    ];
+    environment.systemPackages = [ nrs ];
 
     plusultra.system.home.extraOptions = {
       programs = {
