@@ -11,6 +11,10 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ broot ];
+    plusultra.system.home.extraOptions = {
+      programs.broot = {
+        enable = true;
+      };
+    };
   };
 }

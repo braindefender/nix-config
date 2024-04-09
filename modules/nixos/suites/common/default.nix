@@ -102,7 +102,7 @@ in {
         ollama = enabled;
         openssh = enabled;
         syncthing = enabled;
-        vaultwarden = enabled;
+        # vaultwarden = enabled; // I use BitWarden
       };
     };
   };

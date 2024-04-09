@@ -42,8 +42,9 @@ in
       };
 
       firewall = {
-        allowedTCPPorts = [ 80 443 ];
-        checkReversePath = "loose";
+        # отключено т.к. хост используется для локальной разработки
+        # allowedTCPPorts = [ 22 80 443 ];
+        # checkReversePath = "loose";
       };
 
       hosts = { localhost = [ localhost ]; } // cfg.hosts;
