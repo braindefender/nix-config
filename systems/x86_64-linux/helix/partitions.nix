@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   fileSystems = {
@@ -22,7 +22,7 @@
       fsType = "zfs";
     };
 
-    "/data" = {
+    "/home/${config.plusultra.user.name}/nexus" = {
       device = "vpool/data";
       fsType = "zfs";
     };
@@ -43,5 +43,7 @@
     };
   };
 
-  swapDevices = [{ device = "/dev/disk/by-label/SWAP"; }];
+  swapDevices = [
+    { device = "/dev/disk/by-label/SWAP"; }
+  ];
 }
