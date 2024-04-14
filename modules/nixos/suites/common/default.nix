@@ -101,7 +101,7 @@ in {
         # acme = enabled;
         ollama = enabled;
         openssh = enabled;
-        syncthing = enabled;
+        # syncthing = enabled;
         # vaultwarden = enabled; // I use BitWarden
       };
     };
