@@ -23,7 +23,7 @@ in
 
   config = mkIf cfg.enable {
     boot = {
-      zfs.enableUnstable = true;
+      zfs.package = pkgs.zfs_unstable;
       kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
       kernelModules = modules;
       blacklistedKernelModules = [ "nvidia" "nouveau" "xpad" ];

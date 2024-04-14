@@ -14,7 +14,7 @@ in {
 
     # Docker
     virtualisation.docker = {
-      enable = true;
+      # enable = true;
       storageDriver = "zfs";
       rootless = {
         enable = true;
