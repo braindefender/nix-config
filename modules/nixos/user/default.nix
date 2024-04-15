@@ -31,8 +31,7 @@ in {
       # system to select).
       uid = 1000;
 
-      # TODO: clean groups, move to appropriate files
-      extraGroups = [ "networkmanager" "wheel" ] ++ cfg.extraGroups;
+      extraGroups = [ "wheel" ] ++ cfg.extraGroups;
     } // cfg.extraOptions;
   };
 }
