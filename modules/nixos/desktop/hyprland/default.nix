@@ -92,7 +92,7 @@ in
           ];
 
           input = {
-            follow_mouse = 2;
+            follow_mouse = 1; # https://wiki.hyprland.org/Configuring/Variables/#follow-mouse-cursor
             repeat_delay = 250;
             numlock_by_default = 1;
             kb_layout = "universalLayoutOrtho";
