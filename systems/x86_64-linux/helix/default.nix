@@ -18,14 +18,10 @@ with lib.plusultra;
     };
     hardware = {
       video = enabled;
+      domains = enabled;
     };
     system = {
       boot.grub = enabled;
     };
   };
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  system.stateVersion = "23.05";
 }

@@ -12,6 +12,8 @@ in {
   };
 
   config = mkIf cfg.enable {
+    system.stateVersion = "23.05";
+
     environment.systemPackages = with pkgs; [
       nix-tree
       nix-index
