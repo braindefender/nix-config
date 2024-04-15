@@ -144,6 +144,9 @@ in {
               { keys = ["c" "z"]; commands = ["zi"]; }
 
               { keys = ["d" "d"]; commands = ["cut_files"]; }
+              { keys = ["d" "D"]; commands = ["delete_files"]; }
+              { keys = ["d" "p"]; commands = [":shell rm -rf %s"]; }
+
               { keys = ["y" "y"]; commands = ["copy_files"]; }
               { keys = ["y" "n"]; commands = ["copy_filename"]; }
               { keys = ["y" "."]; commands = ["copy_filename_without_extension"]; }
@@ -153,9 +156,6 @@ in {
 
               { keys = ["p" "l"]; commands = ["symlink_files --relative=false"]; }
               { keys = ["p" "L"]; commands = ["symlink_files --relative=true"]; }
-
-              { keys = ["delete"]; commands = ["delete_files"]; }
-              { keys = ["D"]; commands = ["delete_files"]; }
 
               { keys = ["p" "p"]; commands = ["paste_files"]; }
               { keys = ["p" "o"]; commands = ["paste_files --overwrite=true"]; }
