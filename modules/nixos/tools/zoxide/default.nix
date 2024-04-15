@@ -15,10 +15,7 @@ in {
       programs = {
         zoxide = {
           enable = true;
-          enableBashIntegration = true;
-          enableFishIntegration = true;
           enableZshIntegration = true;
-          package = pkgs.plusultra.zoxide;
         };
       };
     };
