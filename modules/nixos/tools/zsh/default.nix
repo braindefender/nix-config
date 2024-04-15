@@ -5,8 +5,6 @@ with lib.plusultra;
 
 let
   cfg = config.plusultra.tools.zsh;
-  home = config.users.users.${config.plusultra.user.name}.home;
-  flake_path = "${home}/.setup";
 in
 {
   options.plusultra.tools.zsh = with types; {
@@ -31,7 +29,7 @@ in
 
           initExtra = ''
             export KEYTIMEOUT=1
-            
+
             # Use vim bindings
             set -o vi
 
