@@ -7,11 +7,9 @@ let
   cfg = config.plusultra.tools.aliases;
 
   home = config.users.users.${config.plusultra.user.name}.home;
-  flake_path = "${home}/.setup";
 
   nrs = pkgs.writeShellScriptBin "nrs" ''
-    git -C ${flake_path} add --all
-    sudo nixos-rebuild switch --flake "${flake_path}#terra"
+    sudo nixos-rebuild switch --flake .#helix
   '';
 
   aliases = {
@@ -37,8 +35,8 @@ let
     bloat = "nix path-info -Sh /run/current-system";
 
     # ZFS
-    zlist = "sudo zfs list | grep --invert-match 'rpool/root/'";
-    zsnap = "sudo zfs list -t snapshot | grep --invert-match 'rpool/root/'";
+    zlist = "sudo zfs list | grep --invert-match 'vpool/root/'";
+    zsnap = "sudo zfs list -t snapshot | grep --invert-match 'vpool/root/'";
   };
 in
 {
@@ -50,12 +48,7 @@ in
     environment.systemPackages = [ nrs ];
 
     plusultra.system.home.extraOptions = {
-      programs = {
-        bash.shellAliases = aliases;
-        fish.shellAliases = aliases;
-        zsh.shellAliases = aliases;
-        nushell.shellAliases = aliases;
-      };
+      programs.zsh.shellAliases = aliases;
     };
   };
 }
