@@ -12,7 +12,7 @@ let
 
     sleep 1
 
-    ${pkgs.swww}/bin/swww img ${./wallpaper.jpg} &
+    ${pkgs.swww}/bin/swww img "${pkgs.hyprland}/share/hyprland/wall2.png" &
   '';
 in
 {
@@ -24,32 +24,12 @@ in
     plusultra.system.home.extraOptions = {
       programs.zsh.loginExtra = ''
         if [ -z "''${DISPLAY}" ] && [ $(tty) = "/dev/tty1" ]; then
-          Hyprland
+          dbus-run-session Hyprland
         fi
       '';
     };
 
-    environment = {
-      systemPackages = with pkgs; [ hyprland watershot slurp grim wl-clipboard ];
-      sessionVariables = {
-        XDG_CURRENT_DESKTOP = "Hyprland";
-        XDG_SESSION_DESKTOP = "Hyprland";
-        XDG_SESSION_TYPE = "wayland";
-      };
-    };
-
-    services.gnome.gnome-keyring.enable = true;
-
-    programs.hyprland = {
-      enable = true;
-      xwayland.enable = true;
-      package = pkgs.hyprland;
-    };
-
-    xdg.portal = {
-      enable = true;
-      wlr.enable = true;
-    };
+    environment.systemPackages = with pkgs; [ swww wl-clipboard ];
 
     plusultra.system.home.extraOptions = {
 
@@ -57,7 +37,10 @@ in
         enable = true;
 
         settings = {
-          exec-once = ''${script_startup}/bin/start'';
+          exec-once = [
+            ''${script_startup}/bin/start''
+            ''nm-applet --indicator''
+          ];
 
           "$mod" = "SUPER";
 
@@ -109,6 +92,10 @@ in
           master = {
             new_is_master = false;
             mfact = 0.66;
+          };
+
+          animations = {
+            enabled = false;
           };
 
           decoration = {
