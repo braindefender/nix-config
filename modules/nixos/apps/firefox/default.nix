@@ -31,7 +31,6 @@ in
           id = 0;
           name = config.plusultra.user.name;
           extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-            browserpass
             enhancer-for-youtube
             react-devtools
             sponsorblock

@@ -10,7 +10,7 @@
 
     # Snowfall Lib
     snowfall-lib = {
-      url = "github:snowfallorg/lib";
+      url = "github:snowfallorg/lib/dev";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -22,18 +22,6 @@
 
     # NixOS User Repository
     nur.url = "github:nix-community/NUR";
-
-    # Discord Replugged
-    replugged = {
-      url = "github:LunNova/replugged-nix-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Discord Tweaks for Replugged
-    discord-tweaks = {
-      url = "github:NurMarvin/discord-tweaks";
-      flake = false; # repo is not a flake
-    };
 
     # VSCode Remote SSH Server
     vscode-server = {
