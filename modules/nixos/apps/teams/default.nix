@@ -3,14 +3,16 @@
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.apps.teams;
+let
+  cfg = config.plusultra.apps.teams;
+in
 
-in {
+{
   options.plusultra.apps.teams = with types; {
     enable = mkBoolOpt false "Enable Microsoft Teams?";
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ teams-for-linux ];
+    environment.systemPackages = with pkgs.plusultra; [ microsoft-teams-vivaldi ];
   };
 }
