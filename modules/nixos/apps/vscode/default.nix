@@ -60,12 +60,20 @@ in
             command = "-extension.vim_ctrl+p";
           }
           {
-            key = "ctrl+shift+[Semicolon]";
+            key = "ctrl+shift+'";
             command = "workbench.action.terminal.new";
           }
           {
-            key = "ctrl+[Semicolon]";
+            key = "ctrl+'";
             command = "workbench.action.terminal.toggleTerminal";
+          }
+          {
+            key = "alt+left";
+            command = "workbench.action.focusPreviousGroup";
+          }
+          {
+            key = "alt+right";
+            command = "workbench.action.focusNextGroup";
           }
         ];
 

@@ -44,6 +44,7 @@ in {
       bun
       emmet-language-server
       turso-cli
+      tokei
     ] ++ (with pkgs.nodePackages_latest; [
       prettier
       typescript-language-server

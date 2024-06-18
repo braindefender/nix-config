@@ -28,7 +28,19 @@ in
       kernelModules = modules;
       blacklistedKernelModules = [ "nvidia" "nouveau" "xpad" ];
 
-      kernelParams = [ "intel_iommu=on" "preempt=voluntary" ];
+      kernel.sysctl = {
+        "vm.nr_hugepages" = 16;
+        "kernel.shmmax" = 17179869184;
+        "vm.hugetlb_shm_group" = 302;
+      };
+
+      kernelParams = [ 
+        "intel_iommu=on" 
+        "preempt=voluntary" 
+        "default_hugepages_size=1G"
+        "hugepages=16"
+        "hugepages_size=1G"
+      ];
       extraModprobeConfig = "options vfio-pci ids=" + lib.concatStringsSep "," gpuIds;
     };
 
@@ -44,8 +56,12 @@ in
       spiceUSBRedirection.enable = true;
     };
 
-    environment.systemPackages = with pkgs; [ virt-manager ];
+    environment.systemPackages = with pkgs; [ 
+      virt-manager 
+      lm_sensors 
+      libhugetlbfs 
+    ];
 
-    plusultra.user.extraGroups = [ "libvirtd" ];
+    plusultra.user.extraGroups = [ "libvirtd" "kvm" ];
   };
 }
