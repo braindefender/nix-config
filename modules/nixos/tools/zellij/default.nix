@@ -14,7 +14,8 @@ in {
 		plusultra.system.home.extraOptions = {
 			programs.zellij = {
 				enable = true;
-			};
+				enableZshIntegration = true;
+ 			};
 		};
   };
 }
