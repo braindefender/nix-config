@@ -92,6 +92,7 @@ in {
         pass = enabled;
         starship = enabled;
         tealdeer = enabled;
+        yazi = enabled;
         yt-dlp = enabled;
         zellij = enabled;
         zoxide = enabled;
