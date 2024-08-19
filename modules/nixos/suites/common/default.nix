@@ -68,6 +68,7 @@ in {
         vlc = enabled;
         vscode = enabled;
         watershot = enabled;
+        # zed = enabled;
       };
 
       tools = {
@@ -100,6 +101,7 @@ in {
 
       services = {
         # acme = enabled;
+        # headscale = enabled;
         ollama = enabled;
         openssh = enabled;
         # syncthing = enabled;

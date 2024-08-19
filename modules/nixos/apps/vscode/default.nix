@@ -1,4 +1,4 @@
-{ options, config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 with lib.plusultra;
@@ -29,6 +29,7 @@ in
     };
 
     services.vscode-server.enable = true;
+    programs.nix-ld.enable = true;
 
     plusultra.system.home.extraOptions = {
 

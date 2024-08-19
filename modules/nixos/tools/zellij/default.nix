@@ -11,11 +11,10 @@ in {
   };
 
   config = mkIf cfg.enable {
-		plusultra.system.home.extraOptions = {
-			programs.zellij = {
-				enable = true;
-				enableZshIntegration = true;
- 			};
-		};
+    plusultra.system.home.extraOptions = {
+      programs.zellij = {
+        enable = true;
+      };
+    };
   };
 }

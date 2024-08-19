@@ -31,6 +31,21 @@ in
 
     environment.systemPackages = with pkgs; [ swww wl-clipboard ];
 
+    xdg.portal = {
+      enable = true;
+
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-hyprland
+        xdg-desktop-portal-gtk
+      ];
+
+      config = {
+        common = {
+          default = [ "hyprland" "gtk" ];
+        };
+      };
+    };
+
     plusultra.system.home.extraOptions = {
 
       wayland.windowManager.hyprland = {
@@ -110,7 +125,8 @@ in
 
           windowrulev2 = [
             "float, class:^(code)$, title:^(Open File)$"
-            "float, class:^(virt-manager)$"
+            "tile, class:^(virt-manager)$"
+            "tile, class:^(Vivaldi-stable)$"
           ];
         };
       };
