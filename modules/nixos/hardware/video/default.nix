@@ -20,9 +20,8 @@ in
     hardware = {
       cpu.intel.updateMicrocode = true;
 
-      opengl = {
+      graphics = {
         enable = true;
-        driSupport = true;
         extraPackages = with pkgs;[
           intel-media-driver
           vaapiVdpau

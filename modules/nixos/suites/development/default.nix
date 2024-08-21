@@ -48,7 +48,6 @@ in {
     ] ++ (with pkgs.nodePackages_latest; [
       prettier
       typescript-language-server
-      vscode-langservers-extracted
       yarn
       pnpm
     ]);

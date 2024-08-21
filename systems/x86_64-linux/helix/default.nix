@@ -13,10 +13,11 @@ with lib.plusultra;
     suites = {
       common = enabled;
       development = enabled;
-      modeling = enabled;
+      # modeling = enabled;
       work = enabled;
     };
     hardware = {
+      bluetooth = enabled;
       video = enabled;
       domains = enabled;
     };

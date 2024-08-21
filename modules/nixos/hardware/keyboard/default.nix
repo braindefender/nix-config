@@ -11,7 +11,7 @@ in {
 
   config = mkIf cfg.enable {
     plusultra = {
-      tools.qmk = enabled;
+      # tools.qmk = enabled;
       hardware.universal-layout = {
         enable = true;
         defaultLayout = "universalLayoutOrtho";

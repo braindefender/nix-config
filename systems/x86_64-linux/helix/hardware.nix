@@ -16,9 +16,6 @@ with lib.plusultra;
         "sd_mod"
       ];
     };
-
-    # After boot
-    kernelModules = [ "kvm-intel" ];
   };
 
   powerManagement.cpuFreqGovernor = "performance";
@@ -28,9 +25,6 @@ with lib.plusultra;
     cpu.intel.updateMicrocode =
       mkDefault config.hardware.enableRedistributableFirmware;
   };
-
-  # Bluetooth service
-  services.blueman.enable = true;
 
   # Needed for ZFS configuration // https://search.nixos.org/options?channel=unstable&show=networking.hostId
   networking.hostId = "b27a47ea";

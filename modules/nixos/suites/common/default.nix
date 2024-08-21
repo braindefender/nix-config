@@ -47,9 +47,8 @@ in {
       apps = {
         # barrier = enabled;
         # chromium = enabled;
-        discord = enabled;
+        # discord = enabled;
         dunst = enabled;
-        figma = enabled;
         firefox = enabled;
         flameshot = enabled;
         gimp = enabled;

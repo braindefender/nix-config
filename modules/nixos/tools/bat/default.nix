@@ -18,7 +18,7 @@ in
         bat = {
           enable = true;
 
-          extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep ];
+          extraPackages = with pkgs.bat-extras; [ batman batgrep ];
         };
 
         bash.shellAliases = aliases;
