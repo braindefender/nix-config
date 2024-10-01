@@ -27,7 +27,6 @@ in {
       curl # CLI for transfer data over URL
       wget # almost the same as curl
       just # task runner written in Rust / 17.6k stars on GitHub
-      clac # stack-based calculator
       imagemagick # raster and vector image editor and converter
       ffmpeg-full # bunch of codecs and converter utilities
       xclip
