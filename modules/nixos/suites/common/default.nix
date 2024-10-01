@@ -40,6 +40,7 @@ in {
 
         ### Wayland Shit
         hyprland = enabled;
+        niri = enabled;
         # gnome = enabled;
         # sway = enabled;
       };
