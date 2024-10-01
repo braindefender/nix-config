@@ -62,6 +62,7 @@ in {
         polybar = enabled;
         qbittorrent = enabled;
         rofi = enabled;
+        spacedrive = enabled;
         telegram = enabled;
         vivaldi = enabled;
         vlc = enabled;
