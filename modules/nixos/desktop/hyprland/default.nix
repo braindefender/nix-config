@@ -21,6 +21,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    plusultra.desktop.wayland = enabled;
+
     plusultra.system.home.extraOptions = {
       programs.zsh.loginExtra = ''
         if [ -z "''${DISPLAY}" ] && [ $(tty) = "/dev/tty1" ]; then

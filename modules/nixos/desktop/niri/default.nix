@@ -12,7 +12,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ niri waybar ];
+    plusultra.desktop.wayland = enabled;
+
+    environment.systemPackages = with pkgs; [ niri ];
 
     plusultra.system.home.file = {
       ".config/niri/config.kdl".text = ''
