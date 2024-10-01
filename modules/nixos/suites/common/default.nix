@@ -60,7 +60,7 @@ in {
         # moonlight = enabled;
         # obs-studio = enabled;
         obsidian = enabled;
-        polybar = enabled;
+        # polybar = enabled;
         qbittorrent = enabled;
         rofi = enabled;
         spacedrive = enabled;
@@ -69,6 +69,7 @@ in {
         vlc = enabled;
         vscode = enabled;
         watershot = enabled;
+        waybar = enabled;
         # zed = enabled;
       };
 
