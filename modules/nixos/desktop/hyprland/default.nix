@@ -29,7 +29,7 @@ in
       '';
     };
 
-    environment.systemPackages = with pkgs; [ swww wl-clipboard ];
+    environment.systemPackages = with pkgs; [ swww wl-clipboard wev wofi ];
 
     xdg.portal = {
       enable = true;
@@ -105,7 +105,6 @@ in
           };
 
           master = {
-            new_is_master = false;
             mfact = 0.66;
           };
 
