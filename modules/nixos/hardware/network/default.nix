@@ -5,7 +5,6 @@ with lib.plusultra;
 
 let
   cfg = config.plusultra.hardware.network;
-  localhost = "127.0.0.1";
 in
 {
   options.plusultra.hardware.network = with types; {
@@ -41,7 +40,7 @@ in
         enableStrongSwan = true;
       };
 
-      hosts = { localhost = [ localhost ]; } // cfg.hosts;
+      hosts = { } // cfg.hosts;
 
       nameservers = [ "1.1.1.1" "8.8.8.8" ] ++ (cfg.dns or [ ]);
     };
