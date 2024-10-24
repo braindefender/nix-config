@@ -1,11 +1,16 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.tools.zoxide;
+let
+  cfg = config.plusultra.tools.zoxide;
+in
 
-in {
+{
   options.plusultra.tools.zoxide = with types; {
     enable = mkBoolOpt false "Enable zoxide?";
   };

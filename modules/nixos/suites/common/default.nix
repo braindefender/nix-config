@@ -1,11 +1,16 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.suites.common;
+let
+  cfg = config.plusultra.suites.common;
+in
 
-in {
+{
   options.plusultra.suites.common = with types; {
     enable = mkBoolOpt false "Enable common configuration?";
   };
@@ -51,8 +56,8 @@ in {
         # discord = enabled;
         dunst = enabled;
         firefox = enabled;
-        flameshot = enabled;
-        gimp = enabled;
+        # flameshot = enabled;
+        # gimp = enabled;
         gparted = enabled;
         helix = enabled;
         kitty = enabled;
@@ -68,7 +73,7 @@ in {
         vivaldi = enabled;
         vlc = enabled;
         vscode = enabled;
-        watershot = enabled;
+        # watershot = enabled;
         waybar = enabled;
         # zed = enabled;
       };
@@ -92,10 +97,10 @@ in {
         lazygit = enabled;
         joshuto = enabled;
         neovim = enabled;
-        pass = enabled;
+        # pass = enabled;
         starship = enabled;
         tealdeer = enabled;
-        yazi = enabled;
+        # yazi = enabled;
         yt-dlp = enabled;
         zellij = enabled;
         zoxide = enabled;
@@ -103,8 +108,10 @@ in {
 
       services = {
         # acme = enabled;
+        # caddy = enabled;
+        # conduit = enabled;
         # headscale = enabled;
-        ollama = enabled;
+        # ollama = enabled;
         openssh = enabled;
         # syncthing = enabled;
         # vaultwarden = enabled; // I use BitWarden

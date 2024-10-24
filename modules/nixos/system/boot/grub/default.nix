@@ -1,11 +1,16 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.system.boot.grub;
+let
+  cfg = config.plusultra.system.boot.grub;
+in
 
-in {
+{
   options.plusultra.system.boot.grub = with types; {
     enable = mkBoolOpt false "Enable GRUB bootloader?";
   };

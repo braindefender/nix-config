@@ -1,4 +1,8 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
@@ -6,6 +10,7 @@ with lib.plusultra;
 let
   cfg = config.plusultra.apps.vivaldi;
 in
+
 {
   options.plusultra.apps.vivaldi = with types; {
     enable = mkBoolOpt false "Enable Vivaldi?";
@@ -15,4 +20,3 @@ in
     environment.systemPackages = with pkgs; [ vivaldi ];
   };
 }
-

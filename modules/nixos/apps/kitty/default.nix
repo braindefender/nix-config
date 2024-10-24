@@ -1,17 +1,26 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.apps.kitty;
+let
+  cfg = config.plusultra.apps.kitty;
+in
 
-in {
+{
   options.plusultra.apps.kitty = with types; {
     enable = mkBoolOpt false "Enable Kitty terminal emulator?";
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ kitty kitty-themes ];
+    environment.systemPackages = with pkgs; [
+      kitty
+      kitty-themes
+    ];
 
     plusultra.system.home.extraOptions = {
       programs.kitty = {

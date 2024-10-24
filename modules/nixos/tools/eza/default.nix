@@ -1,11 +1,16 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.tools.eza;
+let
+  cfg = config.plusultra.tools.eza;
+in
 
-in {
+{
   options.plusultra.tools.eza = with types; {
     enable = mkBoolOpt false "Enable eza?";
   };
@@ -15,9 +20,10 @@ in {
       programs = {
         eza = {
           enable = true;
-          icons = true;
-          git = true;
           enableZshIntegration = true;
+
+          git = true;
+          icons = true;
           extraOptions = [
             "--group-directories-first"
             "--time-style=long-iso"
@@ -25,6 +31,5 @@ in {
         };
       };
     };
-    environment.systemPackages = with pkgs; [ eza ];
   };
 }

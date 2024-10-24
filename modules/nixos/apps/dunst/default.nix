@@ -1,11 +1,17 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.apps.dunst;
+let
+  cfg = config.plusultra.apps.dunst;
+in
 
-in {
+{
   options.plusultra.apps.dunst = with types; {
     enable = mkBoolOpt false "Enable dunst?";
   };

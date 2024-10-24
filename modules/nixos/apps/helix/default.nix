@@ -1,4 +1,8 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
@@ -7,6 +11,7 @@ let
   cfg = config.plusultra.apps.helix;
   config_helix = builtins.readFile ./config_helix.toml;
 in
+
 {
   options.plusultra.apps.helix = with types;{
     enable = mkBoolOpt false "Enable Helix Editor?";

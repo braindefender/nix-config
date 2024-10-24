@@ -1,4 +1,7 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
@@ -6,11 +9,13 @@ with lib.plusultra;
 let
   cfg = config.plusultra.services.vaultwarden;
 
-  domain = config.networking.domain;
-  fqdn = "warden.${domain}";
+  # domain = config.networking.domain;
+  # fqdn = "warden.${domain}";
   address = "127.0.0.1";
   port = "8020";
+  # note: didn't manage to work
 in
+
 {
   options.plusultra.services.vaultwarden = with types; {
     enable = mkBoolOpt false "Enable VaultWarden?";

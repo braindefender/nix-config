@@ -1,4 +1,8 @@
-{ options, config, lib, pkgs, inputs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
@@ -6,6 +10,7 @@ with lib.plusultra;
 let
   cfg = config.plusultra.desktop.gtk;
 in
+
 {
   options.plusultra.desktop.gtk = with types; {
     enable = mkBoolOpt false "Enable GTK 3/4 configuration?";

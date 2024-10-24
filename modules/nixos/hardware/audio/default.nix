@@ -1,11 +1,17 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.hardware.audio;
+let
+  cfg = config.plusultra.hardware.audio;
+in
 
-in {
+{
   options.plusultra.hardware.audio = with types; {
     enable = mkBoolOpt false "Enable audio configuration?";
   };
@@ -15,10 +21,10 @@ in {
 
     services.pipewire = {
       enable = true;
-      alsa.enable = true;
-      pulse.enable = true;
-      jack.enable = true;
 
+      alsa.enable = true;
+      jack.enable = true;
+      pulse.enable = true;
       wireplumber.enable = true;
     };
 

@@ -1,4 +1,8 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
@@ -7,6 +11,7 @@ let
   cfg = config.plusultra.tools.git;
   user = config.plusultra.user;
 in
+
 {
   options.plusultra.tools.git = with types; {
     enable = mkBoolOpt false "Enable Git? No, really?";
@@ -18,8 +23,11 @@ in
     plusultra.system.home.extraOptions = {
       programs.git = {
         enable = true;
+
         package = pkgs.gitFull;
+
         inherit (cfg) userName userEmail;
+
         extraConfig = {
           init = { defaultBranch = "master"; };
           pull = { rebase = true; };

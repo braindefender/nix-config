@@ -1,11 +1,17 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.apps.barrier;
+let
+  cfg = config.plusultra.apps.barrier;
+in
 
-in {
+{
   options.plusultra.apps.barrier = with types; {
     enable = mkBoolOpt false "Enable barrier?";
   };

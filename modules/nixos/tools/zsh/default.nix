@@ -1,4 +1,8 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
@@ -6,6 +10,7 @@ with lib.plusultra;
 let
   cfg = config.plusultra.tools.zsh;
 in
+
 {
   options.plusultra.tools.zsh = with types; {
     enable = mkBoolOpt false "Enable ZSH?";

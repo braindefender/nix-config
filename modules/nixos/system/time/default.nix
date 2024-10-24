@@ -1,11 +1,16 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.system.time;
+let
+  cfg = config.plusultra.system.time;
+in
 
-in {
+{
   options.plusultra.system.time = with types; {
     enable = mkBoolOpt false "Enable Time Zone configuration?";
   };

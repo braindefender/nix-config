@@ -1,11 +1,15 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.tools.tealdeer;
-
+let
+  cfg = config.plusultra.tools.tealdeer;
 in
+
 {
   options.plusultra.tools.tealdeer = with types; {
     enable = mkBoolOpt false "Enable Tealdeer?";
@@ -17,14 +21,9 @@ in
         tealdeer = {
           enable = true;
 
-          settings = {
-            updates = {
-              auto_update = true;
-            };
-          };
+          settings.updates.auto_update = true;
         };
       };
     };
-    environment.systemPackages = with pkgs; [ tealdeer ];
   };
 }

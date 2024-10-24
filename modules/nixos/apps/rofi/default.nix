@@ -1,11 +1,17 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.apps.rofi;
+let
+  cfg = config.plusultra.apps.rofi;
+in
 
-in {
+{
   options.plusultra.apps.rofi = with types; {
     enable = mkBoolOpt false "Enable rofi?";
   };

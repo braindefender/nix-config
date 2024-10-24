@@ -1,4 +1,7 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
@@ -6,7 +9,9 @@ with lib.plusultra;
 let
   cfg = config.plusultra.services.acme;
   domain = config.networking.domain;
+  # todo: check setup
 in
+
 {
   options.plusultra.services.acme = with types; {
     enable = mkBoolOpt false "Enable ACME?";

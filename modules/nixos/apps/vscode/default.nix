@@ -1,4 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
@@ -8,13 +12,14 @@ let
   font = "CaskaydiaCove Nerd Font Mono";
   prettier = { "editor.defaultFormatter" = "esbenp.prettier-vscode"; };
 in
+
 {
   options.plusultra.apps.vscode = with types; {
     enable = mkBoolOpt false "Enable Visual Studio Code?";
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ vscode-with-extensions nixpkgs-fmt ];
+    environment.systemPackages = with pkgs; [ vscode-with-extensions ];
 
     plusultra.system.home.file = {
       ".vimrc".text = ''
@@ -29,13 +34,12 @@ in
     };
 
     services.vscode-server.enable = true;
+    # Needed for VSCode Server to work properly
     programs.nix-ld.enable = true;
 
     plusultra.system.home.extraOptions = {
-
       programs.vscode = {
         enable = true;
-
         mutableExtensionsDir = true;
 
         extensions = with pkgs.vscode-extensions; [
@@ -93,8 +97,9 @@ in
           "window.zoomLevel" = 1;
 
           # Workbench
-          "workbench.settings.useSplitJSON" = true;
+          "workbench.settings.useSplitJSON" = false;
           "workbench.layoutControl.type" = "toggles";
+          "workbench.activityBar.location" = "top";
           "workbench.sideBar.location" = "right";
           "workbench.list.smoothScrolling" = true;
           "workbench.tree.renderIndentGuides" = "always";
@@ -102,6 +107,9 @@ in
 
           "explorer.confirmDelete" = false;
           "explorer.fileNesting.expand" = false;
+          "explorer.autoRevealExclude" = {
+            "**/node_modules" = false;
+          };
 
           "files.autoSave" = "onFocusChange";
           "files.insertFinalNewline" = true;
@@ -111,13 +119,13 @@ in
           # Cursor
           "editor.cursorWidth" = 2;
           "editor.cursorBlinking" = "solid";
-          "editor.cursorSurroundingLines" = 4;
+          "editor.cursorSurroundingLines" = 10;
 
           # Font
           "editor.fontSize" = 13;
           "editor.lineHeight" = 1.45;
           "editor.fontLigatures" = true;
-          "editor.fontWeight" = "400";
+          "editor.fontWeight" = "normal";
           "editor.fontFamily" = font;
 
           # Colorscheme
@@ -141,9 +149,11 @@ in
           "editor.scrollbar.horizontalScrollbarSize" = 8;
 
           # Others
+          "editor.minimap.autohide" = true;
           "editor.minimap.showSlider" = "always";
           "editor.minimap.renderCharacters" = false;
           "editor.accessibilitySupport" = "off";
+          "editor.unicodeHighlight.includeComments" = false;
           "editor.unicodeHighlight.allowedLocales" = {
             ru = true;
           };
@@ -194,14 +204,31 @@ in
 
           # Language-specific settings
 
-          "typescript.updateImportsOnFileMove.enabled" = "always";
+          ## Nix
+          "nix.enableLanguageServer" = true;
+          "nix.serverPath" = "nixd";
+          "nix.serverSettings" = {
+            "nixd" = {
+              "nixpkgs" = {
+                "expr" = "import <nixpkgs> { }";
+              };
+              "formatting" = {
+                "command" = [ "nixpkgs-fmt" ];
+              };
+            };
+          };
 
-          # Turn off stupid auto-formatter that breaks files
+          ## Others
+          "javascript.updateImportsOnFileMove.enabled" = "always";
+          "typescript.updateImportsOnFileMove.enabled" = "always";
+          "markdown.extension.toc.updateOnSave" = false;
+
+          ## Turn off stupid auto-formatter that breaks files
           "[less]" = {
             "editor.formatOnSave" = false;
           };
 
-          # Prettier Everything
+          ## Prettier Everything
           "[html]" = prettier;
           "[css]" = prettier;
           "[json]" = prettier;
@@ -213,7 +240,7 @@ in
           "[typescript]" = prettier;
           "[typescriptreact]" = prettier;
 
-          # Files Associations
+          ## Files Associations
           "files.associations" = {
             "*.ron" = "rust";
           };

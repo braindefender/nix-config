@@ -1,11 +1,17 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.suites.development;
+let
+  cfg = config.plusultra.suites.development;
+in
 
-in {
+{
   options.plusultra.suites.development = with types; {
     enable = mkBoolOpt false "Enable development configuration?";
   };
@@ -14,6 +20,7 @@ in {
 
     # Docker
     virtualisation.docker = {
+      # root docker is turned off, use rootless docker
       # enable = true;
       storageDriver = "zfs";
       rootless = {

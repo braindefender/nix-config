@@ -1,4 +1,7 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
@@ -12,14 +15,16 @@ let
       yt-dlp -x --continue --add-metadata --embed-thumbnail --audio-format mp3 --audio-quality 0 --metadata-from-title="%(artist)s - %(title)s" --prefer-ffmpeg -o "%(title)s.%(ext)s"
     '';
   };
+
+  # note: deprecated. YouTube now requires auth to download videos & music
 in
+
 {
   options.plusultra.tools.yt-dlp = with types; {
     enable = mkBoolOpt false "Enable yt-dlp?";
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ yt-dlp ];
     plusultra.system.home.extraOptions = {
       programs = {
         yt-dlp = {
@@ -30,8 +35,6 @@ in
           };
         };
 
-        bash.shellAliases = aliases;
-        fish.shellAliases = aliases;
         zsh.shellAliases = aliases;
       };
     };

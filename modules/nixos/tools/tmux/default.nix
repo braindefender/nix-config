@@ -1,11 +1,17 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
 let
   cfg = config.plusultra.tools.tmux;
+  # note: deprecated. use zellij instead
 in
+
 {
   options.plusultra.tools.tmux = with types; {
     enable = mkBoolOpt false "Enable tmux?";
@@ -15,7 +21,7 @@ in
     plusultra.system.home.extraOptions = {
       programs.tmux = {
         enable = true;
-        
+
         clock24 = true;
         baseIndex = 1;
         keyMode = "vi";
@@ -27,7 +33,7 @@ in
 
         extraConfig = ''
           set-option -ga terminal-overrides ",xterm-256color:Tc"
-          
+
         '';
 
         plugins = with pkgs; [

@@ -1,11 +1,13 @@
-{ options, config, pkgs, lib, inputs, ... }:
+{ options
+, config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.system.home;
-
-in {
+{
   options.plusultra.system.home = with types; {
     file = mkOpt attrs { } (mdDoc "A set of files to be managed by home-manager's `home.file`.");
     configFile = mkOpt attrs { } (mdDoc "A set of files to be managed by home-manager's `xdg.configFile`.");

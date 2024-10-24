@@ -3,8 +3,11 @@
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.hardware.keyboard;
-in {
+let
+  cfg = config.plusultra.hardware.keyboard;
+in
+
+{
   options.plusultra.hardware.keyboard = with types; {
     enable = mkBoolOpt false "Whether or not to enable keyboard configuration.";
   };

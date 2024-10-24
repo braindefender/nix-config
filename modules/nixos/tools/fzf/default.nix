@@ -1,11 +1,17 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.tools.fzf;
+let
+  cfg = config.plusultra.tools.fzf;
+in
 
-in {
+{
   options.plusultra.tools.fzf = with types; {
     enable = mkBoolOpt false "Enable FZF?";
   };
@@ -15,9 +21,6 @@ in {
       programs = {
         fzf = {
           enable = true;
-
-          enableBashIntegration = true;
-          enableFishIntegration = true;
           enableZshIntegration = true;
 
           defaultCommand = "${pkgs.fd} --type f --strip-cwd-prefix";
@@ -31,6 +34,5 @@ in {
         };
       };
     };
-    environment.systemPackages = with pkgs; [ fzf ];
   };
 }

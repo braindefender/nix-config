@@ -1,11 +1,16 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.system.locale;
+let
+  cfg = config.plusultra.system.locale;
+in
 
-in {
+{
   options.plusultra.system.locale = with types; {
     enable = mkBoolOpt false "Enable System Locale configuration?";
   };

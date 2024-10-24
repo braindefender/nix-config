@@ -1,4 +1,8 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
@@ -6,6 +10,7 @@ with lib.plusultra;
 let
   cfg = config.plusultra.hardware.network;
 in
+
 {
   options.plusultra.hardware.network = with types; {
     enable = mkBoolOpt false "Enable Network Manager?";
@@ -23,8 +28,6 @@ in
       networkmanager-openvpn
       networkmanager_strongswan
       networkmanagerapplet
-      gnome.networkmanager-l2tp
-      gnome.networkmanager-openvpn
     ];
 
     services.strongswan = {

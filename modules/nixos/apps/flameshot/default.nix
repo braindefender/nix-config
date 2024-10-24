@@ -1,4 +1,7 @@
-{ options, config, lib, pkgs, host ? "", format ? "", ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
@@ -6,12 +9,13 @@ with lib.plusultra;
 let
   cfg = config.plusultra.apps.flameshot;
   username = config.plusultra.user.name;
+  savePath = "${config.users.users.${username}.home}/nexus/images/screens";
 in
+
 {
-  options.plusultra.apps.flameshot = with types;
-    {
-      enable = mkBoolOpt false "Enable Flameshot?";
-    };
+  options.plusultra.apps.flameshot = with types; {
+    enable = mkBoolOpt false "Enable Flameshot?";
+  };
 
   # note: not working on wayland
 
@@ -22,6 +26,7 @@ in
 
         settings = {
           General = {
+            inherit savePath;
             showHelp = false;
             showSidePanelButton = true;
             showStartupLaunchMessage = false;
@@ -30,7 +35,6 @@ in
             contrastUiColor = "#000000";
             drawColor = "#ff00ff";
             drawThickness = 5;
-            savePath = "${config.users.users.${username}.home}/Nexus/imgs/screens";
           };
         };
       };

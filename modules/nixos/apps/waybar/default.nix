@@ -1,13 +1,19 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.apps.waybar;
+let
+  cfg = config.plusultra.apps.waybar;
+  # note: not used for a long time.
+in
 
-in {
+{
   options.plusultra.apps.waybar = with types; {
-    enable = mkBoolOpt false "Enable waybar?";
+    enable = mkBoolOpt false "Enable Waybar?";
   };
 
   config = mkIf cfg.enable {

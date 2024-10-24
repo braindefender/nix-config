@@ -1,4 +1,8 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
@@ -8,6 +12,7 @@ let
   script_xinitrc = builtins.readFile ./script_xinitrc.sh;
   config_leftwm = builtins.readFile ./config_leftwm.ron;
 in
+
 {
   options.plusultra.desktop.leftwm = with types; {
     enable = mkBoolOpt false "Enable leftwm window manager?";

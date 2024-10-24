@@ -1,11 +1,17 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.apps.openscad;
+let
+  cfg = config.plusultra.apps.openscad;
+in
 
-in {
+{
   options.plusultra.apps.openscad = with types; {
     enable = mkBoolOpt false "Enable OpenSCAD?";
   };

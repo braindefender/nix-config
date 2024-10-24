@@ -1,11 +1,17 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.services.ollama;
+let
+  cfg = config.plusultra.services.ollama;
+  # note: without dedicated GPU is quite unusable
+in
 
-in {
+{
   options.plusultra.services.ollama = with types; {
     enable = mkBoolOpt false "Enable Ollama?";
   };

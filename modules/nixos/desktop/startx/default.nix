@@ -1,4 +1,7 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
@@ -6,6 +9,7 @@ with lib.plusultra;
 let
   cfg = config.plusultra.desktop.startx;
 in
+
 {
   options.plusultra.desktop.startx = with types; {
     enable = mkBoolOpt false "Enable startx?";

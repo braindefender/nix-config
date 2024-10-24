@@ -1,12 +1,17 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let 
+let
   cfg = config.plusultra.services.headscale;
-  domain = "headscale.helix";
-in {
+  # todo: check setup
+in
+
+{
   options.plusultra.services.headscale = with types; {
     enable = mkBoolOpt false "Enable Headscale?";
   };
@@ -16,7 +21,7 @@ in {
       allowedTCPPorts = [ server_port ];
       allowedUDPPorts = [ server_port ];
     };
-  
+
     services.headscale = {
       enable = true;
 

@@ -1,11 +1,16 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.system.keyring;
+let
+  cfg = config.plusultra.system.keyring;
+in
 
-in {
+{
   options.plusultra.system.keyring = with types; {
     enable = mkBoolOpt false "Enable GNOME Keyring?";
   };

@@ -1,11 +1,16 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.system.boot.systemd-boot;
+let
+  cfg = config.plusultra.system.boot.systemd-boot;
+in
 
-in {
+{
   options.plusultra.system.boot.systemd-boot = with types; {
     enable = mkBoolOpt false "Enable systemd-boot?";
   };

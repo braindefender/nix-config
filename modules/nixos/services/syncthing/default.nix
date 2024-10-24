@@ -1,4 +1,8 @@
-{ options, config, lib, pkgs, host ? "", format ? "", ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
@@ -15,9 +19,9 @@ let
 
     path_folder="$1"
     path_file="$2"
-    
+
     path_backup="${dataDir}/backup$path_folder"
-    
+
     mkdir -p "$path_backup"
 
     if [ ! -d "$path_backup/.git" ]; then
@@ -32,7 +36,9 @@ let
     ${git} add .
     ${git} commit -m "`date +'%Y-%m-%d %H:%M:%S'` - $path_file"
   '';
+  # note: didn't manage to work
 in
+
 {
   options.plusultra.services.syncthing = with types; {
     enable = mkBoolOpt false "Enable SyncThing?";
@@ -53,6 +59,6 @@ in
 
     plusultra.user.extraGroups = [ "syncthing" ];
 
-    environment.systemPackages = with pkgs; [ syncthing-git-backup ];
+    environment.systemPackages = [ syncthing-git-backup ];
   };
 }

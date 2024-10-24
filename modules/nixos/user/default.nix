@@ -1,11 +1,16 @@
-{ options, config, pkgs, lib, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.user;
+let
+  cfg = config.plusultra.user;
+in
 
-in {
+{
   options.plusultra.user = with types; {
     name = mkOpt str "brain" "The name to use for the user account.";
     fullName = mkOpt str "Nikita Shirokov" "The full name of the user.";

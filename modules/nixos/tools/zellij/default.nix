@@ -1,11 +1,16 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.tools.zellij;
+let
+  cfg = config.plusultra.tools.zellij;
+in
 
-in {
+{
   options.plusultra.tools.zellij = with types; {
     enable = mkBoolOpt false "Enable Zellij?";
   };
@@ -14,6 +19,7 @@ in {
     plusultra.system.home.extraOptions = {
       programs.zellij = {
         enable = true;
+        # enableZshIntegration = true;
       };
     };
   };

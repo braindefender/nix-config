@@ -1,11 +1,17 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.apps.vlc;
+let
+  cfg = config.plusultra.apps.vlc;
+in
 
-in {
+{
   options.plusultra.apps.vlc = with types; {
     enable = mkBoolOpt false "Enable VLC?";
   };

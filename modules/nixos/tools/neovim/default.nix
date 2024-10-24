@@ -1,11 +1,17 @@
-{ options, config, pkgs, lib, ... }:
+{ config
+, pkgs
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.tools.neovim;
+let
+  cfg = config.plusultra.tools.neovim;
+in
 
-in {
+{
   options.plusultra.tools.neovim = with types; {
     enable = mkBoolOpt false "Enable neovim?";
   };
@@ -15,16 +21,16 @@ in {
       # plusultra.neovim
       neovim
     ];
+
     environment.variables = {
       EDITOR = "nvim";
     };
+
     plusultra.system.home.extraOptions = {
       home.sessionVariables = {
         EDITOR = "nvim";
       };
       programs.zsh.shellAliases.vimdiff = "nvim -d";
-      programs.bash.shellAliases.vimdiff = "nvim -d";
-      programs.fish.shellAliases.vimdiff = "nvim -d";
     };
   };
 }

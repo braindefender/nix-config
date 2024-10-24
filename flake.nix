@@ -34,6 +34,11 @@
       submodules = true;
     };
 
+    # Conduwuit (Matrix Server)
+    conduwuit = {
+      url = "github:girlbossceo/conduwuit";
+    };
+
     ### My Own Packages
 
     # neovim with bundled config

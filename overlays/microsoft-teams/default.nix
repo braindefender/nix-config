@@ -1,4 +1,4 @@
-{ channels, ... }:
+{ ... }:
 
 let
   link = "https://teams.microsoft.com/v2";

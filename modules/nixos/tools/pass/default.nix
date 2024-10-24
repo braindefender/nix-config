@@ -1,4 +1,8 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
@@ -6,6 +10,7 @@ with lib.plusultra;
 let
   cfg = config.plusultra.tools.pass;
 in
+
 {
   options.plusultra.tools.pass = with types; {
     enable = mkBoolOpt false "Enable pass, password-store?";
@@ -17,12 +22,14 @@ in
         password-store = {
           enable = true;
         };
+
         browserpass = {
           enable = true;
           browsers = [ "firefox" "chromium" "chrome" ];
         };
       };
     };
+
     environment.systemPackages = with pkgs; [ pass ];
   };
 }

@@ -1,11 +1,16 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.tools.broot;
+let
+  cfg = config.plusultra.tools.broot;
+in
 
-in {
+{
   options.plusultra.tools.broot = with types; {
     enable = mkBoolOpt false "Enable broot?";
   };

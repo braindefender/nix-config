@@ -1,11 +1,17 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.apps.zed;
+let
+  cfg = config.plusultra.apps.zed;
+in
 
-in {
+{
   options.plusultra.apps.zed = with types; {
     enable = mkBoolOpt false "Enable Zed Editor?";
   };

@@ -5,7 +5,9 @@ with lib.plusultra;
 
 let
   cfg = config.plusultra.desktop.niri;
+  # note: needed to be default option, but I'm lazy
 in
+
 {
   options.plusultra.desktop.niri = with types; {
     enable = mkBoolOpt false "Enable Niri Window Manager?";

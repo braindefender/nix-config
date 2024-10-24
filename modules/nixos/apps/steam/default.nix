@@ -1,11 +1,16 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.apps.steam;
+let
+  cfg = config.plusultra.apps.steam;
+in
 
-in {
+{
   options.plusultra.apps.steam = with types; {
     enable = mkBoolOpt false "Enable Steam?";
   };

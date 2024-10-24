@@ -1,15 +1,16 @@
-{ options, config, lib, pkgs, host ? "", format ? "", ... }:
+{ config
+, lib
+, format ? ""
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
 let
   cfg = config.plusultra.services.openssh;
-  user = config.users.users.${config.plusultra.user.name};
-  user-id = builtins.toString user.uid;
-
-  name = host;
 in
+
 {
   options.plusultra.services.openssh = with types; {
     enable = mkBoolOpt false "Enable OpenSSH configuration?";

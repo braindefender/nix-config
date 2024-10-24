@@ -1,11 +1,15 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.tools.direnv;
-
+let
+  cfg = config.plusultra.tools.direnv;
 in
+
 {
   options.plusultra.tools.direnv = with types; {
     enable = mkBoolOpt false "Enable nix-direnv?";
@@ -18,8 +22,8 @@ in
           enable = true;
 
           silent = true;
-          enableZshIntegration = true;
           nix-direnv.enable = true;
+          enableZshIntegration = true;
         };
       };
     };

@@ -1,4 +1,8 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
@@ -10,6 +14,7 @@ let
 
   mod = "Mod4"; # Mod1 is Alt, Mod4 is Win
 in
+
 {
   options.plusultra.desktop.hlwm = with types; {
     enable = mkBoolOpt false "Enable hlwm Window Manager?";

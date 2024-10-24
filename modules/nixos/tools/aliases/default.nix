@@ -1,12 +1,14 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
 let
   cfg = config.plusultra.tools.aliases;
-
-  home = config.users.users.${config.plusultra.user.name}.home;
 
   nrs = pkgs.writeShellScriptBin "nrs" ''
     sudo nixos-rebuild switch --flake .#helix

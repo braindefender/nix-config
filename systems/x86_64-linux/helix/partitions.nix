@@ -1,7 +1,11 @@
-{ config, lib, ... }:
+{ config
+, ...
+}:
+
 let
   username = config.plusultra.user.name;
 in
+
 {
   fileSystems = {
     "/boot" = {
@@ -49,9 +53,9 @@ in
     { device = "/dev/disk/by-label/SWAP"; }
   ];
 
-  # not working cause of snowfall lib not merging home-manager lib
+  # note: not working cause of snowfall lib not merging home-manager lib
   # use `ln -s ~/nexus/.trash ~/.local/share/Trash` to prevent cross-device link error
-  #
+
   # plusultra.system.home.file = {
   #   ".local/share/Trash".source = lib.hm.file.mkOutOfStoreSymlink "${username}/nexus/.trash";
   # };

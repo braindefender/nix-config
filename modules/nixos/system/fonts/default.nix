@@ -1,11 +1,17 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.system.fonts;
+let
+  cfg = config.plusultra.system.fonts;
+in
 
-in {
+{
   options.plusultra.system.fonts = with types; {
     enable = mkBoolOpt false "Enable fonts configuration?";
     fonts = mkOpt (listOf package) [ ] "Custom font packages to install.";
@@ -16,10 +22,10 @@ in {
 
     fonts = {
       packages = with pkgs; [
-        corefonts # MS Windows fonts
+        corefonts
         noto-fonts
         noto-fonts-emoji
-        cantarell-fonts # GNOME 3 default font
+        cantarell-fonts
         font-awesome
         (nerdfonts.override {
           fonts = [
@@ -40,7 +46,10 @@ in {
         };
 
         defaultFonts = {
-          emoji = [ "Segoe UI Emoji" "Noto Fonts Emoji" ];
+          emoji = [
+            "Segoe UI Emoji"
+            "Noto Fonts Emoji"
+          ];
         };
 
         subpixel.lcdfilter = "default"; # TODO: check

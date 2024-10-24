@@ -1,4 +1,8 @@
-{ options, config, pkgs, lib, ... }:
+{ config
+, pkgs
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
@@ -10,6 +14,7 @@ let
     "10de:1aef" # Audio
   ];
 in
+
 {
   options.plusultra.hardware.virtualisation = with types; {
     enable = mkBoolOpt false "Enable KVM GPU virtualisation?";
@@ -18,7 +23,7 @@ in
   config = mkIf cfg.enable {
     boot = {
       zfs.package = pkgs.zfs_unstable;
-      kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+      # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
       kernelModules = [
         "kvm-intel"
         "vfio_virqfd"

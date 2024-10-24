@@ -1,21 +1,22 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.apps.polybar;
+let
+  cfg = config.plusultra.apps.polybar;
+in
 
-in {
+{
   options.plusultra.apps.polybar = with types; {
     enable = mkBoolOpt false "Enable polybar?";
   };
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ polybar ];
-    # plusultra.system.home.extraOptions = {
-    #   services.polybar = {
-    #     enable = true;
-    #   };
-    # };
   };
 }

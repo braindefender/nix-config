@@ -1,11 +1,17 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.apps.discord;
+let
+  cfg = config.plusultra.apps.discord;
+in
 
-in {
+{
   options.plusultra.apps.discord = with types; {
     enable = mkBoolOpt false "Enable Discord?";
   };

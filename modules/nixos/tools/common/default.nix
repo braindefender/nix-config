@@ -1,11 +1,17 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.tools.common;
+let
+  cfg = config.plusultra.tools.common;
+in
 
-in {
+{
   options.plusultra.tools.common = with types; {
     enable = mkBoolOpt false "Enable common shell tools?";
   };

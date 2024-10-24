@@ -1,12 +1,17 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
 let
   cfg = config.plusultra.desktop.gnome;
-  gdmHome = config.users.users.gdm.home;
+  # gdmHome = config.users.users.gdm.home;
 in
+
 {
   options.plusultra.desktop.gnome = with types; {
     enable = mkBoolOpt false "Whether or not to use GNOME as the desktop environment.";

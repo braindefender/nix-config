@@ -1,4 +1,8 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
@@ -6,6 +10,7 @@ with lib.plusultra;
 let
   cfg = config.plusultra.desktop.picom;
 in
+
 {
   options.plusultra.desktop.picom = with types; {
     enable = mkBoolOpt false "Enable picom composition manager?";

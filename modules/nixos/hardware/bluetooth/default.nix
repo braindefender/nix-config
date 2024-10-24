@@ -1,16 +1,21 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, ...
+}:
 
 with lib;
 with lib.plusultra;
 
-let cfg = config.plusultra.hardware.bluetooth;
+let
+  cfg = config.plusultra.hardware.bluetooth;
+in
 
-in {
+{
   options.plusultra.hardware.bluetooth = with types; {
     enable = mkBoolOpt false "Enable Bluetooth?";
   };
 
   config = mkIf cfg.enable {
-    services.blueman.enable = true;
+    hardware.bluetooth.enable = true;
   };
 }

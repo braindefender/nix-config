@@ -1,4 +1,8 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
@@ -11,6 +15,7 @@ let
     "browser.urlbar.suggest.quicksuggest.sponsored" = false;
   };
 in
+
 {
   options.plusultra.apps.firefox = with types; {
     enable = mkBoolOpt false "Enable Firefox?";

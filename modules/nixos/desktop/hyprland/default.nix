@@ -1,4 +1,8 @@
-{ options, config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, ...
+}:
 
 with lib;
 with lib.plusultra;
@@ -15,6 +19,7 @@ let
     ${pkgs.swww}/bin/swww img "${pkgs.hyprland}/share/hyprland/wall2.png" &
   '';
 in
+
 {
   options.plusultra.desktop.hyprland = with types; {
     enable = mkBoolOpt false "Enable hyprland window manager?";
