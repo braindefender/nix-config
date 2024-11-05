@@ -100,6 +100,7 @@ in
         neovim = enabled;
         # pass = enabled;
         starship = enabled;
+        superfile = enabled;
         tealdeer = enabled;
         # yazi = enabled;
         yt-dlp = enabled;
