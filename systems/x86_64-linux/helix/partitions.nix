@@ -47,6 +47,11 @@ in
       device = "vpool/virt/windows";
       fsType = "zfs";
     };
+
+    "/backup" = {
+      device = "backup/backup";
+      fsType = "zfs";
+    };
   };
 
   swapDevices = [
