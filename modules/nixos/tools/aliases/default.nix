@@ -9,10 +9,17 @@ with lib.plusultra;
 
 let
   cfg = config.plusultra.tools.aliases;
+  # home = config.users.users.${config.plusultra.user.name}.home;
 
   nrs = pkgs.writeShellScriptBin "nrs" ''
     sudo nixos-rebuild switch --flake .#helix
   '';
+
+  # symlinks = {
+  #   ".setup" = {
+  #     source = config.lib.file.mkOutOfStoreSymlink "${home}/nexus/areas/software/nixos/setup";
+  #   };
+  # };
 
   aliases = {
     q = "exit";
@@ -52,5 +59,7 @@ in
     plusultra.system.home.extraOptions = {
       programs.zsh.shellAliases = aliases;
     };
+
+    # plusultra.system.home.file = symlinks;
   };
 }
