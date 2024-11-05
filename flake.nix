@@ -35,9 +35,9 @@
     };
 
     # Conduwuit (Matrix Server)
-    conduwuit = {
-      url = "github:girlbossceo/conduwuit";
-    };
+    # conduwuit = {
+    #   url = "github:girlbossceo/conduwuit";
+    # };
 
     ### My Own Packages
 

@@ -63,6 +63,7 @@ in
         kitty = enabled;
         # krusader = enabled;
         # moonlight = enabled;
+        nekoray = enabled;
         # obs-studio = enabled;
         obsidian = enabled;
         # polybar = enabled;
